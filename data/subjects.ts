@@ -1,8 +1,9 @@
-// data/subjects.ts
+import type { SubjectSlug } from "@/data/curriculum";
+
 export type IconName = "calculator" | "book" | "atom" | "castle" | "globe" | "chat";
 
 export type Subject = {
-  slug: string;
+  slug: SubjectSlug;   // <-- use the union, not string
   title: string;
   color: string;
   icon: IconName;

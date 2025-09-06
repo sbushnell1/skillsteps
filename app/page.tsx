@@ -1,5 +1,8 @@
-// app/page.tsx
-import { redirect } from "next/navigation";
 export default function Home() {
-  redirect("/learn");
+  return (
+    <div>
+      <h1 className="h1">Welcome to SkillSteps</h1>
+      <p className="sub">Choose a section from the sidebar to get started.</p>
+    </div>
+  );
 }

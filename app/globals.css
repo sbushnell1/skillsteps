@@ -34,3 +34,49 @@ body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,
 
 /* Narrow screens: auto-min sidebar */
 @media (max-width:900px){.sidebar{width:84px!important}}
+
+/* replace your .skill-grid / .skill-card block with this */
+.skill-grid {
+  --min:160px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(var(--min),1fr));
+  gap:22px;
+  max-width:900px;
+}
+
+.skill-card{
+  width:170px;             /* consistent size */
+  aspect-ratio:1/1;
+  background:var(--accent);
+  border-radius:22px;
+  border:1px solid #e5e7eb;
+  padding:14px;
+  text-decoration:none;
+  color:inherit;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 1px 2px rgba(16,24,40,.05);
+  transition:transform .06s ease, box-shadow .12s ease, filter .12s ease;
+}
+
+.skill-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 16px rgba(16,24,40,.12);
+  filter:saturate(1.03);
+}
+
+.skill-card:focus-visible{
+  outline:3px solid #8f79dd;
+  outline-offset:2px;
+}
+
+.skill-inner{display:flex;flex-direction:column;align-items:center;gap:10px}
+.skill-label{font-weight:800; font-size:18px; text-align:center}
+
+@media (max-width:560px){
+  .skill-card{ width:150px; }
+}
+
+
+
