@@ -1,32 +1,40 @@
 // app/learn/[subject]/page.tsx
 import Link from "next/link";
 import { redirect, notFound } from "next/navigation";
+import { headers } from "next/headers";
 import { SUBJECTS, type Subject } from "@/data/subjects";
-import { getSkills, allSubjectSlugs, type SubjectSlug } from "@/data/curriculum";
+import { getSkills, type SubjectSlug } from "@/data/curriculum";
+import { levelForAge } from "@/data/ages";
 
-const LEVEL = "y6" as const;
+export const dynamic = "force-dynamic"; // read cookies each request
 
-// Build pages for all subjects EXCEPT "languages" (handled by its own route)
-export function generateStaticParams() {
-    return allSubjectSlugs("y6").filter(s => s !== "languages").map(s => ({ subject: s }));
-  }
-
-export default function SubjectPage({ params }: { params: { subject: SubjectSlug } }) {
-  // If someone hits /learn/languages, send them to the language chooser
-  if (params.subject === "languages") {
-    redirect("/learn/languages"); // throws; no further code runs
-  }
+export default async function SubjectPage({ params }: { params: { subject: SubjectSlug } }) {
+  if (params.subject === "languages") redirect("/learn/languages");
 
   const subject = SUBJECTS.find((s) => s.slug === params.subject) as Subject | undefined;
   if (!subject) return notFound();
 
-  const skills = getSkills(LEVEL, subject.slug);
+  const hdrs = await headers();
+  const cookieHeader = hdrs.get("cookie") ?? "";
+  const readCookie = (name: string): string | undefined => {
+    const esc = name.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+    const m = cookieHeader.match(new RegExp(`(?:^|;\\s*)${esc}=([^;]*)`));
+    return m ? decodeURIComponent(m[1]) : undefined;
+  };
+
+  const ageStr = readCookie("ss.age");
+  const age = ageStr ? Number(ageStr) : 10;
+  const level = levelForAge(age); // e.g. "y5" | "y6"
+
+  // Pull skills for this level; graceful fallback to y6 while you build other years
+  let skills = getSkills(level, subject.slug);
+  if (skills.length === 0) skills = getSkills("y6", subject.slug);
 
   return (
     <div style={{ "--accent": subject.color } as React.CSSProperties}>
       <h1 className="h1">{subject.title}</h1>
       <p className="sub">
-        You’re working at year 6 level. Click <Link href="/settings">here</Link> to change this.
+        Age {age} (Year {level.replace(/^y/i, "")}). Click <Link href="/settings">here</Link> to change this.
       </p>
 
       <div className="skill-grid">

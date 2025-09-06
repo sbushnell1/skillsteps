@@ -1,21 +1,42 @@
+// app/learn/[subject]/[skill]/page.tsx
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getSkill, allSkillParams, type SubjectSlug } from "@/data/curriculum";
+import { headers } from "next/headers";
+import { SUBJECTS } from "@/data/subjects";
+import { getSkill, type SubjectSlug } from "@/data/curriculum";
+import { levelForAge } from "@/data/ages";
 
-const LEVEL = "y6" as const;
+export const dynamic = "force-dynamic";
 
-export function generateStaticParams() {
-  return allSkillParams(LEVEL).map(({ subject, skill }) => ({ subject, skill }));
-}
+export default async function SkillPage({
+  params,
+}: { params: { subject: SubjectSlug; skill: string } }) {
+  const subject = SUBJECTS.find((s) => s.slug === params.subject);
+  if (!subject) return notFound();
 
-export default function SkillPage({ params }: { params: { subject: SubjectSlug; skill: string } }) {
-  const skill = getSkill(LEVEL, params.subject, params.skill);
+  const hdrs = await headers();
+  const cookieHeader = hdrs.get("cookie") ?? "";
+  const readCookie = (name: string): string | undefined => {
+    const esc = name.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+    const m = cookieHeader.match(new RegExp(`(?:^|;\\s*)${esc}=([^;]*)`));
+    return m ? decodeURIComponent(m[1]) : undefined;
+  };
+
+  const ageStr = readCookie("ss.age");
+  const age = ageStr ? Number(ageStr) : 10;
+  const level = levelForAge(age); // "y5" | "y6"
+
+  // Get the level-specific skill; fallback to y6 if this year not populated yet
+  let skill = getSkill(level, params.subject, params.skill);
+  if (!skill) skill = getSkill("y6", params.subject, params.skill);
   if (!skill) return notFound();
 
   return (
-    <div>
+    <div style={{ "--accent": subject.color } as React.CSSProperties}>
       <h1 className="h1" style={{ textTransform: "capitalize" }}>{params.subject}</h1>
-      <p className="sub">You’re working at year 6 level. Click <Link href="/settings">here</Link> to change this.</p>
+      <p className="sub">
+        Age {age} (Year {level.replace(/^y/i, "")}). Topic: <strong>{skill.title}</strong>
+      </p>
 
       <div style={{ display: "grid", placeItems: "center", margin: "12px 0 24px" }}>
         <div className="subject-card" style={{ padding: 12, borderRadius: 999, background: "var(--chip)" }}>
@@ -24,6 +45,7 @@ export default function SkillPage({ params }: { params: { subject: SubjectSlug; 
       </div>
 
       <div className="subject-grid" style={{ "--min": "260px" } as React.CSSProperties}>
+
         {/* Overview / PDF */}
         <a
           className="subject-card"
