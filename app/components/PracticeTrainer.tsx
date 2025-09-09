@@ -11,6 +11,8 @@ type Props = {
   age: number;
   objectives: string[];
   weaknesses: string[]; // placeholder; empty for now
+  langName?: string;   // e.g. "German" (only for languages flow)
+  langCode?: string;   // e.g. "de"
 };
 
 type QA = {
@@ -46,6 +48,11 @@ export default function PracticeTrainer(props: Props) {
   const [finished, setFinished] = useState(false);
   const [summary, setSummary] = useState<{ tips?: string } | null>(null);
 
+  // Feedback flow
+  const [awaitingNext, setAwaitingNext] = useState(false);
+  const [pendingNextQ, setPendingNextQ] = useState<string | null>(null);
+  const [lastMarked, setLastMarked] = useState<QA | null>(null);
+
   const textRef = useRef<HTMLInputElement>(null);
 
   const settings = useMemo(
@@ -61,13 +68,15 @@ export default function PracticeTrainer(props: Props) {
       age: props.age,
       objectives: props.objectives,
       weaknesses: props.weaknesses,
+      langName: props.langName,
+      langCode: props.langCode,
     }),
     [count, difficulty, focusWeaknesses, props]
   );
 
   useEffect(() => {
-    if (started) textRef.current?.focus();
-  }, [started, index]);
+    if (started && !awaitingNext) textRef.current?.focus();
+  }, [started, index, awaitingNext]);
 
   const start = async () => {
     setStarted(true);
@@ -78,6 +87,9 @@ export default function PracticeTrainer(props: Props) {
     setFinished(false);
     setSummary(null);
     setInput("");
+    setAwaitingNext(false);
+    setPendingNextQ(null);
+    setLastMarked(null);
 
     try {
       const res = await fetch("/api/practice/next", {
@@ -104,7 +116,7 @@ export default function PracticeTrainer(props: Props) {
   };
 
   const submit = async () => {
-    if (!input.trim() || loading || finished) return;
+    if (!input.trim() || loading || finished || awaitingNext) return;
     const current = items[index];
     const answer = input.trim();
     setLoading(true);
@@ -127,41 +139,86 @@ export default function PracticeTrainer(props: Props) {
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error || "Failed to grade");
 
-      // Update current with marking
+      // --- Normalise correctness to avoid obvious false negatives ---
+      const normalize = (s: unknown) =>
+        String(s ?? "")
+          .trim()
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, ""); // strip accents/diacritics
+      
+      const asNumber = (s: string) => {
+        const m = s.replace(/[^0-9.+\-/*]/g, "").trim();
+        return m && !isNaN(Number(m)) ? Number(m) : null;
+      };
+
+      let corrected = !!data.correct;
+      const ua = answer;
+      const caRaw = String(data.correctAnswer ?? "");
+      const uaNum = asNumber(ua);
+      const caNum = asNumber(caRaw);
+
+      if (!corrected) {
+        if (uaNum !== null && caNum !== null && uaNum === caNum) {
+          corrected = true;
+        } else if (normalize(ua) === normalize(caRaw)) {
+          corrected = true;
+        }
+      }
+      // ----------------------------------------------------------------
+
+      // Update this question in the array for history/score
       const marked: QA = {
         ...current,
         userAnswer: answer,
-        correct: data.correct,
-        correctAnswer: data.correctAnswer,
-        rationale: data.rationale,
+        correct: corrected,
+        correctAnswer: caRaw,
+        rationale:
+          corrected && data.correct === false && !data.rationale
+            ? "Nice — that matches the expected answer."
+            : data.rationale,
       };
-
       const nextItems = [...items];
       nextItems[index] = marked;
-
-      // Update score
-      const newScore = data.correct ? score + 1 : score;
-      setScore(newScore);
       setItems(nextItems);
+
+      // Set visible feedback explicitly
+      setLastMarked(marked);
+
+      // Score
+      setScore((s) => (corrected ? s + 1 : s));
       setInput("");
 
       if (data.finish) {
         setFinished(true);
         setSummary({ tips: data.tips || undefined });
+        setAwaitingNext(false);
+        setPendingNextQ(null);
         return;
       }
 
-      // Next question
-      const nextQ: QA = { n: current.n + 1, question: data.question };
-      setItems([...nextItems, nextQ]);
-      setIndex(index + 1);
+      // Hold feedback; only advance when learner clicks "Next"
+      setPendingNextQ(data.question || "");
+      setAwaitingNext(true);
     } catch (e) {
       console.error(e);
       alert("Could not submit answer. Please try again.");
     } finally {
       setLoading(false);
-      textRef.current?.focus();
     }
+  };
+
+  const goNext = () => {
+    if (!awaitingNext || !pendingNextQ) return;
+    const current = items[index];
+    const nextQ: QA = { n: current.n + 1, question: pendingNextQ };
+    setItems((arr) => [...arr, nextQ]);
+    setIndex((i) => i + 1);
+    setAwaitingNext(false);
+    setPendingNextQ(null);
+    setLastMarked(null);
+    setInput("");
+    textRef.current?.focus();
   };
 
   const reset = () => {
@@ -172,7 +229,13 @@ export default function PracticeTrainer(props: Props) {
     setFinished(false);
     setSummary(null);
     setInput("");
+    setAwaitingNext(false);
+    setPendingNextQ(null);
+    setLastMarked(null);
   };
+
+  // Which card to show as feedback? Always the last marked one if present.
+  const feedback = lastMarked;
 
   return (
     <div className="practice-card">
@@ -229,22 +292,23 @@ export default function PracticeTrainer(props: Props) {
             <div>Score: {score}/{settings.total}</div>
           </div>
 
-          {/* Question & feedback */}
+          {/* Question */}
           <div className="practice-q">
             <div className="practice-q-title">Question</div>
             <div className="practice-q-body">{items[index]?.question}</div>
           </div>
 
-          {items[index]?.userAnswer !== undefined && (
-            <div className={`practice-mark ${items[index]?.correct ? "ok" : "nope"}`}>
-              {items[index]?.correct ? "Correct!" : "Not quite."}
+          {/* Feedback (always show the last marked result, if any) */}
+          {feedback && (
+            <div className={`practice-mark ${feedback.correct ? "ok" : "nope"}`}>
+              {feedback.correct ? "Correct!" : "Not quite."}
               <div className="practice-mark-sub">
-                {items[index]?.correct
-                  ? (items[index]?.rationale || "Nice work!")
+                {feedback.correct
+                  ? (feedback.rationale || "Nice work!")
                   : (
                     <>
-                      The answer should be <strong>{items[index]?.correctAnswer}</strong>
-                      {items[index]?.rationale ? <> — {items[index]?.rationale}</> : null}
+                      The answer should be <strong>{feedback.correctAnswer}</strong>
+                      {feedback.rationale ? <> — {feedback.rationale}</> : null}
                     </>
                   )
                 }
@@ -252,8 +316,8 @@ export default function PracticeTrainer(props: Props) {
             </div>
           )}
 
-          {/* Answer box */}
-          {!finished && (
+          {/* Answer box OR Next button */}
+          {!finished && !awaitingNext && (
             <form
               className="composer"
               onSubmit={(e) => { e.preventDefault(); submit(); }}
@@ -270,6 +334,14 @@ export default function PracticeTrainer(props: Props) {
                 {index + 1 === settings.total ? "Finish" : "Submit"}
               </button>
             </form>
+          )}
+
+          {!finished && awaitingNext && (
+            <div style={{ marginTop: 10 }}>
+              <button className="composer-btn" onClick={goNext} disabled={loading}>
+                Next question
+              </button>
+            </div>
           )}
 
           {/* Finished summary */}

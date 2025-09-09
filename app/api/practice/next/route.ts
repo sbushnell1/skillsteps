@@ -19,6 +19,8 @@ type Settings = {
   age: number;
   objectives: string[];
   weaknesses: string[];
+  langName?: string;  // "German"
+  langCode?: string;  // "de"
 };
 
 export async function POST(req: NextRequest) {
@@ -46,30 +48,44 @@ export async function POST(req: NextRequest) {
       settings.total - (history?.length ?? 0) - (mode === "grade" ? 1 : 0);
 
     // Build a compact, strict system instruction
-    const sysLines = [
-      `You are an expert question writer and marker for ${settings.subject}, topic: ${settings.skillTitle}.`,
-      `Learner level: UK Year ${settings.level.replace(/^y/i, "")} (age ~${settings.age}).`,
-      `Write questions one at a time. Keep numbers simple and stay narrowly on-topic.`,
-      `Difficulty setting: ${settings.difficulty} (${
-        (
-          {
-            warmup: "simple numbers and direct steps",
-            standard: "typical classroom problems",
-            challenge: "trickier numbers or multi-step",
-          } as const
-        )[settings.difficulty]
-      }).`,
-      settings.focusWeaknesses && settings.weaknesses.length
-        ? `Focus more on the learner weaknesses: ${settings.weaknesses.join(", ")}.`
-        : `FocusWeaknesses is currently off or unavailable.`,
-      settings.objectives.length
-        ? `Learning objectives: ${settings.objectives.join(" | ")}`
-        : ``,
-      `IMPORTANT: Output JSON ONLY with the schema described.`,
-      `Do not include markdown, text outside JSON, or backticks.`,
-    ]
-      .filter(Boolean)
-      .join("\n");
+    const languageLines =
+  settings.subjectSlug === "languages" && settings.langName
+    ? [
+        `TARGET LANGUAGE: ${settings.langName}.`,
+        `All questions must involve ${settings.langName} vocabulary/phrases for the topic "${settings.skillTitle}".`,
+        `Ask/prompt in English, but REQUIRE the learner's answer in ${settings.langName}.`,
+        `If the learner answers in English when a ${settings.langName} answer is expected, mark incorrect and provide the correct ${settings.langName} form.`,
+        `Prefer short, age-appropriate items: single-word translations, short phrases, or fill-the-gap in ${settings.langName}.`,
+      ]
+    : [];
+
+const sysLines = [
+  `You are an expert question writer and marker for ${settings.subject}, topic: ${settings.skillTitle}.`,
+  `Learner level: UK Year ${settings.level.replace(/^y/i, "")} (age ~${settings.age}).`,
+  `Write questions one at a time. Keep numbers simple and stay narrowly on-topic.`,
+  `Difficulty setting: ${settings.difficulty} (${
+    (
+      {
+        warmup: "simple numbers and direct steps",
+        standard: "typical classroom problems",
+        challenge: "trickier numbers or multi-step",
+      } as const
+    )[settings.difficulty]
+  }).`,
+  ...languageLines, // 👈 inject here
+  settings.focusWeaknesses && settings.weaknesses.length
+    ? `Focus more on the learner weaknesses: ${settings.weaknesses.join(", ")}.`
+    : `FocusWeaknesses is currently off or unavailable.`,
+  settings.objectives.length
+    ? `Learning objectives: ${settings.objectives.join(" | ")}`
+    : ``,
+  `IMPORTANT: Output JSON ONLY with the schema described.`,
+  `Do not include markdown, text outside JSON, or backticks.`,
+]
+  .filter(Boolean)
+  .join("\n");
+
+
 
     // The assistant must either:
     // - when mode=init: return a new question
@@ -124,6 +140,9 @@ export async function POST(req: NextRequest) {
         `If remaining > 0, provide a new question that avoids repeating earlier ones.\n` +
         `Respond as JSON: ${JSON.stringify(schema.grade)}.`;
     }
+
+    console.log("[practice] sysLines:\n", sysLines);
+    console.log("[practice] userContent:\n", userContent);
 
     const resp = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
