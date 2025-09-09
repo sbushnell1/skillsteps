@@ -4,16 +4,15 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 export const runtime = "nodejs";
-export const dynamic = "force-dynamic"; // ensure it's not statically optimized
+export const dynamic = "force-dynamic";
 
 const VALID_SEG = /^[a-z0-9_-]+$/i;
 
 export async function GET(
   _req: NextRequest,
-  context: { params: Promise<{ parts: string[] }> } // <-- params is a Promise
+  { params }: { params: { parts: string[] } }
 ) {
-  const { parts: rawParts } = await context.params; // <-- await it
-  const raw = (rawParts ?? []).filter(Boolean);
+  const raw = (params.parts ?? []).filter(Boolean);
 
   if (raw.length < 3) {
     return new Response(JSON.stringify({ error: "Invalid PDF path" }), {
@@ -37,8 +36,8 @@ export async function GET(
   console.log("[pdfs] Attempting to read:", filePath);
 
   try {
-    const buf = await fs.readFile(filePath);    // Node Buffer
-    const bytes = new Uint8Array(buf);          // valid BodyInit
+    const buf = await fs.readFile(filePath);
+    const bytes = new Uint8Array(buf);
 
     return new Response(bytes, {
       status: 200,

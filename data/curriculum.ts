@@ -92,7 +92,7 @@ export const CURRICULUM: Partial<Record<Level, Record<SubjectSlug, Skill[]>>> = 
   // ===== Y2 =====
   y2: {
     maths: [
-      mk("y2","maths","number-to-1000","Numbers to 100"),
+      mk("y2","maths","number-to-100","Numbers to 100"),
       mk("y2","maths","add-sub-100","Add & Subtract to 100 (regrouping)"),
       mk("y2","maths","mult-2-5-10","Multiply & Divide (2, 5, 10)"),
       mk("y2","maths","fractions-halves-quarters","Fractions: 1/2, 1/3, 1/4"),

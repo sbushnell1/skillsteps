@@ -140,32 +140,40 @@ export default function PracticeTrainer(props: Props) {
       if (!res.ok) throw new Error(data?.error || "Failed to grade");
 
       // --- Normalise correctness to avoid obvious false negatives ---
-      const normalize = (s: unknown) =>
-        String(s ?? "")
-          .trim()
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, ""); // strip accents/diacritics
-      
-      const asNumber = (s: string) => {
-        const m = s.replace(/[^0-9.+\-/*]/g, "").trim();
-        return m && !isNaN(Number(m)) ? Number(m) : null;
-      };
+const normalize = (s: unknown) =>
+  String(s ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, ""); // strip accents/diacritics
 
-      let corrected = !!data.correct;
-      const ua = answer;
-      const caRaw = String(data.correctAnswer ?? "");
-      const uaNum = asNumber(ua);
-      const caNum = asNumber(caRaw);
+const parseMaybeNumber = (s: string) => {
+  const t = s.trim();
+  // simple fraction like "1/2"
+  const frac = t.match(/^(-?\d+)\s*\/\s*(-?\d+)$/);
+  if (frac) {
+    const num = Number(frac[1]), den = Number(frac[2]);
+    if (!Number.isNaN(num) && !Number.isNaN(den) && den !== 0) return num / den;
+  }
+  // general numeric (allow exponent)
+  const cleaned = t.replace(/[^0-9.+\-eE]/g, "");
+  return cleaned && !isNaN(Number(cleaned)) ? Number(cleaned) : null;
+};
 
-      if (!corrected) {
-        if (uaNum !== null && caNum !== null && uaNum === caNum) {
-          corrected = true;
-        } else if (normalize(ua) === normalize(caRaw)) {
-          corrected = true;
-        }
-      }
-      // ----------------------------------------------------------------
+let corrected = !!data.correct;
+const ua = answer;
+const caRaw = String(data.correctAnswer ?? "");
+const uaNum = parseMaybeNumber(ua);
+const caNum = parseMaybeNumber(caRaw);
+
+if (!corrected) {
+  if (uaNum !== null && caNum !== null && uaNum === caNum) {
+    corrected = true;
+  } else if (normalize(ua) === normalize(caRaw)) {
+    corrected = true;
+  }
+}
+// ----------------------------------------------------------------
 
       // Update this question in the array for history/score
       const marked: QA = {
