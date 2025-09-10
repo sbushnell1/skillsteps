@@ -10,8 +10,10 @@ export const dynamic = "force-dynamic";
 
 export default async function PracticePage({
   params,
-}: { params: { subject: SubjectSlug; skill: string } }) {
-  const subject = SUBJECTS.find((s) => s.slug === params.subject);
+}: { params: Promise<{ subject: SubjectSlug; skill: string }> }) {
+  const { subject: subjectSlug, skill: skillSlug } = await params;
+
+  const subject = SUBJECTS.find((s) => s.slug === subjectSlug);
   if (!subject) return notFound();
 
   const hdrs = await headers();
@@ -20,8 +22,8 @@ export default async function PracticePage({
   const age = ageMatch ? Number(decodeURIComponent(ageMatch[1])) : 10;
   const level = levelForAge(age);
 
-  let skill = getSkill(level, params.subject, params.skill);
-  if (!skill) skill = getSkill("y6", params.subject, params.skill);
+  let skill = getSkill(level, subjectSlug, skillSlug);
+  if (!skill) skill = getSkill("y6", subjectSlug, skillSlug);
   if (!skill) return notFound();
 
   return (
@@ -35,13 +37,12 @@ export default async function PracticePage({
 
       <PracticeTrainer
         subject={subject.title}
-        subjectSlug={params.subject}
-        skillSlug={params.skill}
+        subjectSlug={subjectSlug}
+        skillSlug={skillSlug}
         skillTitle={skill.title}
         level={level}
         age={age}
         objectives={skill.objectives ?? []}
-        // Weaknesses: placeholder for now (wire later)
         weaknesses={[]}
       />
     </div>

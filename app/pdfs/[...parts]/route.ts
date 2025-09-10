@@ -8,11 +8,14 @@ export const dynamic = "force-dynamic";
 
 const VALID_SEG = /^[a-z0-9_-]+$/i;
 
+type Params = { parts: string[] };
+
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { parts: string[] } }
+  context: { params: Promise<Params> } // <- Promise here
 ) {
-  const raw = (params.parts ?? []).filter(Boolean);
+  const { parts: incoming } = await context.params; // <- await it
+  const raw = (incoming ?? []).filter(Boolean);
 
   if (raw.length < 3) {
     return new Response(JSON.stringify({ error: "Invalid PDF path" }), {
@@ -37,9 +40,7 @@ export async function GET(
 
   try {
     const buf = await fs.readFile(filePath);
-    const bytes = new Uint8Array(buf);
-
-    return new Response(bytes, {
+    return new Response(new Uint8Array(buf), {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",

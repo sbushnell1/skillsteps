@@ -1,0 +1,2175 @@
+version: 1
+notes: >
+  Objective IDs are stable keys for tagging diagnostic items and tracking mastery over time.
+  Difficulty bands are relative within a year group: basic | core | stretch.
+
+levels:
+  y1:
+    maths:
+      number-to-100:
+        title: Numbers to 100
+        objectives:
+          - id: MTH.Y1.N100.COUNT_SEQ
+            label: Count forwards/backwards within 100
+            difficulty: basic
+          - id: MTH.Y1.N100.COMPARE
+            label: Compare numbers to 100 using <, >, =
+            difficulty: core
+          - id: MTH.Y1.N100.NUMLINE_PLACE
+            label: Place numbers on a number line to 100
+            difficulty: core
+      add-sub-20:
+        title: Addition & Subtraction to 20
+        objectives:
+          - id: MTH.Y1.AS20.FACTS
+            label: Recall number bonds within 20
+            difficulty: basic
+          - id: MTH.Y1.AS20.ADD_NO_REGROUP
+            label: Add within 20 without regrouping
+            difficulty: core
+          - id: MTH.Y1.AS20.SUBTRACT
+            label: Subtract within 20 using counting back
+            difficulty: core
+      place-value:
+        title: Place Value (tens & ones)
+        objectives:
+          - id: MTH.Y1.PV.TENS_ONES_ID
+            label: Identify tens and ones in a 2-digit number
+            difficulty: basic
+          - id: MTH.Y1.PV.EXPAND_2DIG
+            label: Partition 2-digit numbers into tens and ones
+            difficulty: core
+          - id: MTH.Y1.PV.COMP_2DIG
+            label: Compare 2-digit numbers using place value
+            difficulty: core
+      shape-2d-3d:
+        title: 2D & 3D Shapes
+        objectives:
+          - id: MTH.Y1.SHP.NAME_2D
+            label: Name common 2D shapes (circle, triangle, square, rectangle)
+            difficulty: basic
+          - id: MTH.Y1.SHP.NAME_3D
+            label: Name common 3D shapes (cube, cuboid, sphere, cone)
+            difficulty: core
+          - id: MTH.Y1.SHP.SIMPLE_PROP
+            label: Describe simple properties (sides, corners, faces)
+            difficulty: core
+      measures-length-mass:
+        title: Length & Mass
+        objectives:
+          - id: MTH.Y1.MEAS.COMP_LEN_MASS
+            label: Compare length and mass using language (longer, heavier)
+            difficulty: basic
+          - id: MTH.Y1.MEAS.NONSTD_UNITS
+            label: Measure using non-standard units (cubes, hands)
+            difficulty: core
+          - id: MTH.Y1.MEAS.SELECT_TOOL
+            label: Choose appropriate tool for length or mass
+            difficulty: stretch
+      time-o-clock:
+        title: Time (o’clock & half past)
+        objectives:
+          - id: MTH.Y1.TIME.OCLOCK
+            label: Tell time to o’clock
+            difficulty: basic
+          - id: MTH.Y1.TIME.HALFPAST
+            label: Tell time to half past
+            difficulty: core
+          - id: MTH.Y1.TIME.READ_CLOCKS
+            label: Match analogue clocks to given times
+            difficulty: core
+      money-coins:
+        title: Money (coins)
+        objectives:
+          - id: MTH.Y1.MNY.RECOG_COINS
+            label: Recognise common UK coins/notes
+            difficulty: basic
+          - id: MTH.Y1.MNY.MAKE_AMOUNTS
+            label: Make small amounts using coins
+            difficulty: core
+          - id: MTH.Y1.MNY.COMP_VALUES
+            label: Compare values of coins/sets of coins
+            difficulty: core
+      fractions-basic:
+        title: Fractions (halves & quarters)
+        objectives:
+          - id: MTH.Y1.FRA.HALVES_SHAPES
+            label: Recognise and find half of an object/shape
+            difficulty: basic
+          - id: MTH.Y1.FRA.QUARTERS_SHAPES
+            label: Recognise and find quarter of an object/shape
+            difficulty: core
+          - id: MTH.Y1.FRA.HALF_QUART_SET
+            label: Find half/quarter of a small set of objects
+            difficulty: stretch
+    english:
+      phonics-phase5:
+        title: Phonics (Phase 5)
+        objectives:
+          - id: ENG.Y1.PHN.PHASE5_GPCS
+            label: Read Phase 5 grapheme-phoneme correspondences
+            difficulty: core
+          - id: ENG.Y1.PHN.ALT_PRON
+            label: Use alternative pronunciations (e.g., a in ‘path’)
+            difficulty: core
+          - id: ENG.Y1.PHN.BLEND_SEG
+            label: Blend and segment Phase 5 words
+            difficulty: core
+      handwriting:
+        title: Handwriting & Letter Formation
+        objectives:
+          - id: ENG.Y1.HW.LETTER_FORM
+            label: Form lower-case letters correctly
+            difficulty: basic
+          - id: ENG.Y1.HW.CAPITALS
+            label: Form capital letters correctly
+            difficulty: core
+          - id: ENG.Y1.HW.SPACING
+            label: Use finger spaces between words
+            difficulty: core
+      simple-sentences:
+        title: Simple Sentences & Capital Letters
+        objectives:
+          - id: ENG.Y1.SENT.CAPITAL_I
+            label: Use capital letters for sentence starts and ‘I’
+            difficulty: basic
+          - id: ENG.Y1.SENT.SUBJECT_VERB
+            label: Write simple subject–verb sentences
+            difficulty: core
+          - id: ENG.Y1.SENT.END_PUNCT
+            label: End sentences with a full stop
+            difficulty: core
+      full-stops:
+        title: Full Stops & Finger Spaces
+        objectives:
+          - id: ENG.Y1.PUNC.FULLSTOP_USE
+            label: Place full stops at sentence end
+            difficulty: basic
+          - id: ENG.Y1.PUNC.SPACES
+            label: Use clear finger spaces
+            difficulty: basic
+          - id: ENG.Y1.PUNC.READBACK
+            label: Read work back to check punctuation
+            difficulty: core
+      common-exception-words:
+        title: Common Exception Words
+        objectives:
+          - id: ENG.Y1.CEW.RECOG
+            label: Read common exception words on Y1 list
+            difficulty: core
+          - id: ENG.Y1.CEW.SPELL
+            label: Spell selected Y1 exception words
+            difficulty: core
+          - id: ENG.Y1.CEW.IN_CONTEXT
+            label: Use exception words correctly in a sentence
+            difficulty: stretch
+      narrative-simple:
+        title: Simple Narratives
+        objectives:
+          - id: ENG.Y1.NAR.SEQ_EVENTS
+            label: Sequence events in order (beginning/middle/end)
+            difficulty: core
+          - id: ENG.Y1.NAR.WHO_WHERE
+            label: Include who and where in a story
+            difficulty: core
+          - id: ENG.Y1.NAR.TIME_OPENER
+            label: Use time openers (First/Then/Finally)
+            difficulty: stretch
+      speaking-listening:
+        title: Speaking & Listening
+        objectives:
+          - id: ENG.Y1.SL.TURN_TAKE
+            label: Take turns and listen to others
+            difficulty: basic
+          - id: ENG.Y1.SL.CLEAR_VOICE
+            label: Speak clearly in full sentences
+            difficulty: core
+          - id: ENG.Y1.SL.ASK_QUESTIONS
+            label: Ask simple questions about a topic
+            difficulty: core
+    science:
+      seasonal-changes:
+        title: Seasonal Changes
+        objectives:
+          - id: SCI.Y1.SEAS.ID_SEASONS
+            label: Name the four seasons and associated weather
+            difficulty: basic
+          - id: SCI.Y1.SEAS.DAY_LENGTH
+            label: Describe changes in day length across seasons
+            difficulty: core
+          - id: SCI.Y1.SEAS.RECORD_WEATHER
+            label: Record/simple chart of weather observations
+            difficulty: core
+      animals-incl-humans:
+        title: Animals including Humans
+        objectives:
+          - id: SCI.Y1.ANIM.CLASSIFY_BASIC
+            label: Sort animals by simple features (fish, birds, mammals)
+            difficulty: basic
+          - id: SCI.Y1.ANIM.BODY_PARTS
+            label: Identify basic body parts and senses
+            difficulty: core
+          - id: SCI.Y1.ANIM.DIET_SIMPLE
+            label: Recognise carnivore/herbivore/omnivore
+            difficulty: core
+      plants:
+        title: Plants
+        objectives:
+          - id: SCI.Y1.PLANTS.NAME_COMMON
+            label: Name common garden/wild plants
+            difficulty: basic
+          - id: SCI.Y1.PLANTS.LABEL_PARTS
+            label: Label parts of a plant (root, stem, leaf, flower)
+            difficulty: core
+          - id: SCI.Y1.PLANTS.GROW_NEEDS
+            label: Describe what plants need to grow
+            difficulty: core
+      everyday-materials:
+        title: Everyday Materials
+        objectives:
+          - id: SCI.Y1.MAT.NAME_MATERIALS
+            label: Name common materials (wood, plastic, glass, metal)
+            difficulty: basic
+          - id: SCI.Y1.MAT.PROP_SIMPLE
+            label: Describe simple properties (hard, bendy, waterproof)
+            difficulty: core
+          - id: SCI.Y1.MAT.MATCH_USE
+            label: Match materials to everyday uses
+            difficulty: core
+    history:
+      changes-living-memory:
+        title: Changes within Living Memory
+        objectives:
+          - id: HIS.Y1.LIVE.TIMEWORDS
+            label: Use time words (then/now/past) to describe change
+            difficulty: basic
+          - id: HIS.Y1.LIVE.COMPARE_PAST_NOW
+            label: Compare life today with recent past locally
+            difficulty: core
+          - id: HIS.Y1.LIVE.SIMPLE_SOURCE
+            label: Talk about a simple source (photo/object)
+            difficulty: core
+      local-history:
+        title: Local History
+        objectives:
+          - id: HIS.Y1.LOCAL.PLACE_FEATURES
+            label: Name key places/landmarks in the local area
+            difficulty: basic
+          - id: HIS.Y1.LOCAL.STORY_PAST
+            label: Retell a simple story from local past
+            difficulty: core
+          - id: HIS.Y1.LOCAL.SEQ_EVENTS
+            label: Sequence two or three events on a simple timeline
+            difficulty: core
+      significant-individuals:
+        title: Significant Individuals (intro)
+        objectives:
+          - id: HIS.Y1.SIG.WHO_WHAT
+            label: Say who a significant person is and what they did
+            difficulty: basic
+          - id: HIS.Y1.SIG.WHY_IMPORT
+            label: Explain simply why they are important
+            difficulty: core
+          - id: HIS.Y1.SIG.COMPARE_TWO
+            label: Compare two figures with one similarity/difference
+            difficulty: stretch
+    geography:
+      uk-countries-capitals:
+        title: UK Countries & Capitals
+        objectives:
+          - id: GEO.Y1.UK.NAME_4
+            label: Name the four countries of the UK
+            difficulty: basic
+          - id: GEO.Y1.UK.CAPITALS
+            label: Name their capital cities
+            difficulty: core
+          - id: GEO.Y1.UK.FLAG_MATCH
+            label: Match countries to flags/maps
+            difficulty: core
+      local-area:
+        title: My Local Area
+        objectives:
+          - id: GEO.Y1.LOCAL.FEATURES
+            label: Identify human/physical features locally
+            difficulty: basic
+          - id: GEO.Y1.LOCAL.SIMPLE_MAP
+            label: Draw a simple map with symbols
+            difficulty: core
+          - id: GEO.Y1.LOCAL.ROUTE_TALK
+            label: Describe a simple route using near/next to
+            difficulty: core
+      weather-daily:
+        title: Weather & Seasons
+        objectives:
+          - id: GEO.Y1.WEA.OBSERVE
+            label: Observe and describe daily weather
+            difficulty: basic
+          - id: GEO.Y1.WEA.SYMBOLS
+            label: Use simple weather symbols on a chart
+            difficulty: core
+          - id: GEO.Y1.WEA.SEASON_LINK
+            label: Link weather to seasons
+            difficulty: core
+      simple-maps:
+        title: Simple Maps & Symbols
+        objectives:
+          - id: GEO.Y1.MAP.SYMBOL_READ
+            label: Recognise simple map symbols
+            difficulty: basic
+          - id: GEO.Y1.MAP.KEY_USE
+            label: Use a key to interpret a simple map
+            difficulty: core
+          - id: GEO.Y1.MAP.POSITION
+            label: Describe position using near/next to/beside
+            difficulty: core
+
+  y2:
+    maths:
+      number-to-100:
+        title: Numbers to 100
+        objectives:
+          - id: MTH.Y2.N100.COUNT_SKIP
+            label: Count in 2s, 5s, 10s to 100
+            difficulty: basic
+          - id: MTH.Y2.N100.PLACE_2DIG
+            label: Partition and recombine 2-digit numbers
+            difficulty: core
+          - id: MTH.Y2.N100.ORDER
+            label: Order sets of 2-digit numbers
+            difficulty: core
+      add-sub-100:
+        title: Add & Subtract to 100 (regrouping)
+        objectives:
+          - id: MTH.Y2.AS100.COLUMN_NO_CARRY
+            label: Column addition without regrouping
+            difficulty: core
+          - id: MTH.Y2.AS100.COLUMN_CARRY
+            label: Column addition with regrouping
+            difficulty: stretch
+          - id: MTH.Y2.AS100.SUB_BORROW
+            label: Subtraction with exchanging (tens/ones)
+            difficulty: stretch
+      mult-2-5-10:
+        title: Multiply & Divide (2, 5, 10)
+        objectives:
+          - id: MTH.Y2.MD.RECALL_2_5_10
+            label: Recall facts for 2, 5, 10 times tables
+            difficulty: core
+          - id: MTH.Y2.MD.MULT_ARRAY
+            label: Use arrays to represent multiplication
+            difficulty: core
+          - id: MTH.Y2.MD.DIV_EQUAL_GROUPS
+            label: Divide by grouping/sharing using 2, 5, 10
+            difficulty: stretch
+      fractions-halves-quarters:
+        title: "Fractions: 1/2, 1/3, 1/4"
+        objectives:
+          - id: MTH.Y2.FRA.FIND_UNIT
+            label: Find unit fractions of shapes/sets (1/2, 1/3, 1/4)
+            difficulty: core
+          - id: MTH.Y2.FRA.EQUAL_PARTS
+            label: Recognise equal parts vs unequal
+            difficulty: basic
+          - id: MTH.Y2.FRA.COMP_SAME_NUM
+            label: Compare simple fractions with same numerator/denominator
+            difficulty: stretch
+      money:
+        title: Money (notes & coins)
+        objectives:
+          - id: MTH.Y2.MNY.COUNT_MIXED
+            label: Count a mixed set of coins/notes
+            difficulty: core
+          - id: MTH.Y2.MNY.CHANGE
+            label: Find change from £1 or £2
+            difficulty: stretch
+          - id: MTH.Y2.MNY.COMP_AMOUNTS
+            label: Compare money amounts using <, >
+            difficulty: core
+      time-5-mins:
+        title: Time (to 5 minutes)
+        objectives:
+          - id: MTH.Y2.TIME.READ_5MIN
+            label: Read to the nearest 5 minutes
+            difficulty: core
+          - id: MTH.Y2.TIME.AM_PM
+            label: Distinguish am/pm and order events
+            difficulty: core
+          - id: MTH.Y2.TIME.DURATIONS
+            label: Calculate simple durations across the hour
+            difficulty: stretch
+      shape-properties:
+        title: Shape Properties
+        objectives:
+          - id: MTH.Y2.SHP.SIDES_VERTICES
+            label: Count sides and vertices on polygons
+            difficulty: core
+          - id: MTH.Y2.SHP.LINE_SYM
+            label: Identify lines of symmetry in 2D shapes
+            difficulty: stretch
+          - id: MTH.Y2.SHP.3D_FACES
+            label: Identify faces/edges/vertices on 3D shapes
+            difficulty: core
+      measure-mass-volume:
+        title: Mass, Capacity & Temperature
+        objectives:
+          - id: MTH.Y2.MEAS.READ_SCALE
+            label: Read scales in 1s/2s/5s/10s
+            difficulty: core
+          - id: MTH.Y2.MEAS.ESTIMATE
+            label: Estimate and measure using standard units
+            difficulty: core
+          - id: MTH.Y2.MEAS.COMPARE
+            label: Compare and order measurements
+            difficulty: stretch
+    english:
+      reading-comprehension:
+        title: Reading Comprehension (Y2)
+        objectives:
+          - id: ENG.Y2.READ.RETELL
+            label: Retell main events in order
+            difficulty: core
+          - id: ENG.Y2.READ.RETRIEVE
+            label: Retrieve key facts from a text
+            difficulty: core
+          - id: ENG.Y2.READ.INFER_SIMPLE
+            label: Make simple inferences about feelings
+            difficulty: stretch
+      spelling-rules:
+        title: Spelling Rules & Suffixes
+        objectives:
+          - id: ENG.Y2.SPL.SUF_ED_ING
+            label: Add -ed/-ing with doubling or dropping e
+            difficulty: core
+          - id: ENG.Y2.SPL.PLURALS_S_ES
+            label: Spell plurals with -s/-es
+            difficulty: basic
+          - id: ENG.Y2.SPL.COMMON_RULES
+            label: Apply common Y2 spelling rules in context
+            difficulty: stretch
+      nouns-verbs-adjectives:
+        title: Nouns, Verbs & Adjectives
+        objectives:
+          - id: ENG.Y2.GRAM.ID_NVA
+            label: Identify nouns, verbs, adjectives in sentences
+            difficulty: core
+          - id: ENG.Y2.GRAM.EXPAND_NP
+            label: Write expanded noun phrases
+            difficulty: stretch
+          - id: ENG.Y2.GRAM.SUBJ_VERB_AGR
+            label: Use subject–verb agreement in present/past
+            difficulty: core
+      punctuation-qs-exclam:
+        title: Question & Exclamation Marks
+        objectives:
+          - id: ENG.Y2.PUNC.QUES_USE
+            label: Use question marks for questions
+            difficulty: core
+          - id: ENG.Y2.PUNC.EXCL_USE
+            label: Use exclamation marks appropriately
+            difficulty: stretch
+          - id: ENG.Y2.PUNC.DISTINGUISH
+            label: Distinguish statements/questions/exclamations
+            difficulty: core
+      expanded-noun-phrases:
+        title: Expanded Noun Phrases
+        objectives:
+          - id: ENG.Y2.NP.USE_ADJ
+            label: Add adjectives to expand noun phrases
+            difficulty: core
+          - id: ENG.Y2.NP.COMMA_LIST
+            label: Use commas in short lists
+            difficulty: stretch
+          - id: ENG.Y2.NP.IN_CONTEXT
+            label: Use expanded noun phrases in own writing
+            difficulty: core
+      writing-recounts:
+        title: Recounts & Instructions
+        objectives:
+          - id: ENG.Y2.WRI.SEQ_STEPS
+            label: Sequence steps with time connectives
+            difficulty: core
+          - id: ENG.Y2.WRI.IMPERATIVES
+            label: Use imperative verbs for instructions
+            difficulty: core
+          - id: ENG.Y2.WRI.PAST_RECOUNT
+            label: Write a short recount in the past tense
+            difficulty: stretch
+    science:
+      living-things-habitats:
+        title: Living Things & Habitats
+        objectives:
+          - id: SCI.Y2.HAB.CLASSIFY
+            label: Sort things into living, dead, never alive
+            difficulty: basic
+          - id: SCI.Y2.HAB.MATCH_HAB
+            label: Match animals to suitable habitats
+            difficulty: core
+          - id: SCI.Y2.HAB.SIMPLE_FOODCHAIN
+            label: Create simple food chains
+            difficulty: core
+      plants-growth:
+        title: Plants – Growth & Needs
+        objectives:
+          - id: SCI.Y2.PLANT.TEST_WATER_LIGHT
+            label: Investigate needs of plants (water/light/heat)
+            difficulty: core
+          - id: SCI.Y2.PLANT.OBS_GROWTH
+            label: Observe/record plant growth over time
+            difficulty: core
+          - id: SCI.Y2.PLANT.SEED_BULB
+            label: Describe difference between seeds and bulbs
+            difficulty: stretch
+      materials-uses:
+        title: Materials & Their Uses
+        objectives:
+          - id: SCI.Y2.MAT.SUITABILITY
+            label: Describe suitability of materials for uses
+            difficulty: core
+          - id: SCI.Y2.MAT.CHANGE_SHAPE
+            label: Explore bending/twisting/stretching
+            difficulty: basic
+          - id: SCI.Y2.MAT.TEST_FAIR
+            label: Plan simple comparative tests of properties
+            difficulty: stretch
+      animals-basic-needs:
+        title: Animals & Basic Needs
+        objectives:
+          - id: SCI.Y2.ANIM.NEEDS
+            label: Identify basic needs for survival
+            difficulty: basic
+          - id: SCI.Y2.ANIM.DIET_GROUPS
+            label: Group foods into simple food groups
+            difficulty: core
+          - id: SCI.Y2.ANIM.LIFECYCLE_SIMPLE
+            label: Describe simple animal life cycles
+            difficulty: stretch
+    history:
+      events-beyond-memory:
+        title: Events Beyond Living Memory
+        objectives:
+          - id: HIS.Y2.EV.BEYOND.ID_EVENT
+            label: Identify an event and place it on a simple timeline
+            difficulty: core
+          - id: HIS.Y2.EV.BEYOND.CAUSE_EFFECT
+            label: Say a simple cause/effect of the event
+            difficulty: stretch
+          - id: HIS.Y2.EV.BEYOND.SOURCE_DIFF
+            label: Spot differences between two sources
+            difficulty: core
+      significant-people:
+        title: Significant People
+        objectives:
+          - id: HIS.Y2.SIG.WHAT_DONE
+            label: Describe what the person achieved
+            difficulty: core
+          - id: HIS.Y2.SIG.CONTEXT
+            label: Place person in time (before/after others)
+            difficulty: stretch
+          - id: HIS.Y2.SIG.IMPACT
+            label: Explain simple impact on people/places
+            difficulty: core
+      local-heritage:
+        title: Local Heritage
+        objectives:
+          - id: HIS.Y2.LOC.HERIT_SITES
+            label: Identify local heritage sites/artefacts
+            difficulty: basic
+          - id: HIS.Y2.LOC.TIME_ORDER
+            label: Arrange local events in time order
+            difficulty: core
+          - id: HIS.Y2.LOC.CHANGE_REASON
+            label: Give a reason for a change over time locally
+            difficulty: stretch
+    geography:
+      continents-oceans:
+        title: Continents & Oceans
+        objectives:
+          - id: GEO.Y2.WORLD.7CONT
+            label: Name and locate 7 continents on a map
+            difficulty: core
+          - id: GEO.Y2.WORLD.5OCEANS
+            label: Name and locate 5 oceans
+            difficulty: core
+          - id: GEO.Y2.WORLD.MAP_GLOBE
+            label: Use map/globe to identify locations
+            difficulty: stretch
+      hot-cold-places:
+        title: Hot & Cold Places
+        objectives:
+          - id: GEO.Y2.CLIM.HOT_COLD
+            label: Identify hot and cold regions of the world
+            difficulty: core
+          - id: GEO.Y2.CLIM.POLE_EQUATOR
+            label: Relate temperature to poles/equator
+            difficulty: core
+          - id: GEO.Y2.CLIM.ANIMAL_ADAPT
+            label: Give simple examples of animal adaptations
+            difficulty: stretch
+      uk-physical-human:
+        title: UK Human & Physical Features
+        objectives:
+          - id: GEO.Y2.UK.PHYSICAL_EX
+            label: Identify physical features (river, hill, coast)
+            difficulty: core
+          - id: GEO.Y2.UK.HUMAN_EX
+            label: Identify human features (port, town, farm)
+            difficulty: core
+          - id: GEO.Y2.UK.COMPARE_REG
+            label: Compare two UK regions by features
+            difficulty: stretch
+      maps-directions:
+        title: Maps & Simple Directions
+        objectives:
+          - id: GEO.Y2.MAP.NSEW
+            label: Use N, S, E, W to give directions
+            difficulty: core
+          - id: GEO.Y2.MAP.ROUTES
+            label: Plot a simple route on a map
+            difficulty: core
+          - id: GEO.Y2.MAP.SYMBOL_KEY
+            label: Use a simple key to decode a map
+            difficulty: stretch
+
+  y3:
+    maths:
+      place-value-1000:
+        title: Place Value to 1000
+        objectives:
+          - id: MTH.Y3.PV.3DIG_PART
+            label: Partition and recombine 3-digit numbers
+            difficulty: core
+          - id: MTH.Y3.PV.ROUND10_100
+            label: Round to nearest 10 and 100
+            difficulty: core
+          - id: MTH.Y3.PV.NUMLINE_1000
+            label: Place numbers to 1000 on a number line
+            difficulty: stretch
+      add-sub-3digit:
+        title: Add & Subtract 3-digit Numbers
+        objectives:
+          - id: MTH.Y3.AS3.COL_ADD
+            label: Column addition with and without regrouping
+            difficulty: core
+          - id: MTH.Y3.AS3.COL_SUB
+            label: Column subtraction with exchanging
+            difficulty: stretch
+          - id: MTH.Y3.AS3.ESTIMATE_CHECK
+            label: Estimate and check using inverse
+            difficulty: stretch
+      mult-div-3-4-8:
+        title: Multiply & Divide (3, 4, 8)
+        objectives:
+          - id: MTH.Y3.MD.RECALL_3_4_8
+            label: Recall facts for 3, 4, 8 times tables
+            difficulty: core
+          - id: MTH.Y3.MD.DIV_FACTS
+            label: Use related division facts
+            difficulty: core
+          - id: MTH.Y3.MD.MULT_2DIG_1DIG
+            label: Multiply 2-digit by 1-digit (no regroup>9)
+            difficulty: stretch
+      fractions-tenths:
+        title: Fractions & Tenths
+        objectives:
+          - id: MTH.Y3.FRA.TENTHS_AS_10
+            label: Recognise tenths as 1/10 and as decimals (0.1)
+            difficulty: core
+          - id: MTH.Y3.FRA.EQ_FRAC
+            label: Find simple equivalent fractions
+            difficulty: stretch
+          - id: MTH.Y3.FRA.COMP_SAME_DEN
+            label: Compare fractions with same denominator
+            difficulty: core
+      time-24hr:
+        title: Time (24-hour)
+        objectives:
+          - id: MTH.Y3.TIME.READ_24H
+            label: Read and write time using 24-hour clock
+            difficulty: core
+          - id: MTH.Y3.TIME.DIFF_MIN
+            label: Calculate time intervals in minutes
+            difficulty: stretch
+          - id: MTH.Y3.TIME.TIMETABLE
+            label: Interpret simple timetables
+            difficulty: stretch
+      perimeter:
+        title: Perimeter
+        objectives:
+          - id: MTH.Y3.MEAS.PERIM_RECT
+            label: Find the perimeter of rectangles
+            difficulty: core
+          - id: MTH.Y3.MEAS.PERIM_POLY
+            label: Perimeter of simple polygons on grids
+            difficulty: core
+          - id: MTH.Y3.MEAS.PERIM_MISS
+            label: Find missing side from perimeter
+            difficulty: stretch
+      statistics-bar-charts:
+        title: Statistics (Bar Charts)
+        objectives:
+          - id: MTH.Y3.STAT.READ_BAR
+            label: Read and interpret bar charts/tables
+            difficulty: core
+          - id: MTH.Y3.STAT.ONE_STEP
+            label: Solve one-step problems with charts
+            difficulty: core
+          - id: MTH.Y3.STAT.TWO_STEP
+            label: Solve two-step problems with charts
+            difficulty: stretch
+    english:
+      paragraphs:
+        title: Paragraphs & Topic Sentences
+        objectives:
+          - id: ENG.Y3.PAR.TOPIC_SENT
+            label: Use topic sentences to group ideas
+            difficulty: core
+          - id: ENG.Y3.PAR.ORDER_IDEAS
+            label: Order ideas logically within a paragraph
+            difficulty: core
+          - id: ENG.Y3.PAR.SUBHEAD
+            label: Use simple subheadings where appropriate
+            difficulty: stretch
+      inverted-commas:
+        title: Inverted Commas for Speech
+        objectives:
+          - id: ENG.Y3.SPEECH.MARKS
+            label: Use inverted commas to punctuate direct speech
+            difficulty: core
+          - id: ENG.Y3.SPEECH.NEW_LINE
+            label: New line for a new speaker
+            difficulty: basic
+          - id: ENG.Y3.SPEECH.PUNCT_END
+            label: Place punctuation before closing quotes
+            difficulty: stretch
+      prefixes-suffixes:
+        title: Prefixes & Suffixes
+        objectives:
+          - id: ENG.Y3.MORPH.COMMON_PRE
+            label: Use common prefixes (un-, re-, dis-)
+            difficulty: core
+          - id: ENG.Y3.MORPH.COMMON_SUF
+            label: Use common suffixes (-ly, -ful, -ness)
+            difficulty: core
+          - id: ENG.Y3.MORPH.FORM_CLASS
+            label: Change word class with affixes
+            difficulty: stretch
+      story-settings:
+        title: Story Settings & Characters
+        objectives:
+          - id: ENG.Y3.NAR.DESC_SETTING
+            label: Describe setting with noun phrases
+            difficulty: core
+          - id: ENG.Y3.NAR.CHAR_ACTION
+            label: Show character through actions/dialogue
+            difficulty: stretch
+          - id: ENG.Y3.NAR.OPEN_END
+            label: Use engaging openings and clear endings
+            difficulty: core
+      nonfiction-reports:
+        title: Non-fiction Reports
+        objectives:
+          - id: ENG.Y3.NF.STRUCTURE
+            label: Structure report with subheadings
+            difficulty: core
+          - id: ENG.Y3.NF.PRESENT_TENSE
+            label: Use present tense and factual tone
+            difficulty: core
+          - id: ENG.Y3.NF.DIAGRAM_LABEL
+            label: Include labelled diagrams/tables
+            difficulty: stretch
+      vocabulary-building:
+        title: Vocabulary & Synonyms
+        objectives:
+          - id: ENG.Y3.VOC.SYNONYMS
+            label: Choose stronger synonyms for common words
+            difficulty: core
+          - id: ENG.Y3.VOC.CONTEXT_CLUE
+            label: Use context clues to infer meaning
+            difficulty: stretch
+          - id: ENG.Y3.VOC.THESAURUS
+            label: Use a simple thesaurus effectively
+            difficulty: stretch
+    science:
+      rocks-soils:
+        title: Rocks & Soils
+        objectives:
+          - id: SCI.Y3.ROCK.ID_TYPES
+            label: Identify types of rocks and basic properties
+            difficulty: core
+          - id: SCI.Y3.ROCK.SOIL_MAKEUP
+            label: Describe how soil is made (organic/rock)
+            difficulty: stretch
+          - id: SCI.Y3.ROCK.TESTS
+            label: Perform simple tests (hardness/permeability)
+            difficulty: core
+      forces-magnets:
+        title: Forces & Magnets
+        objectives:
+          - id: SCI.Y3.FORCE.FRICTION
+            label: Compare surface friction effects
+            difficulty: core
+          - id: SCI.Y3.FORCE.MAG_ATTRACT
+            label: Identify magnetic materials; poles attract/repel
+            difficulty: core
+          - id: SCI.Y3.FORCE.MAG_FIELD
+            label: Predict attraction/repulsion with poles
+            difficulty: stretch
+      light:
+        title: Light & Shadows
+        objectives:
+          - id: SCI.Y3.LIGHT.SOURCES
+            label: Identify light sources and reflectors
+            difficulty: basic
+          - id: SCI.Y3.LIGHT.SHADOW_MAKE
+            label: Explain how shadows form/size changes
+            difficulty: core
+          - id: SCI.Y3.LIGHT.SAFETY
+            label: Describe sun safety for eyes/skin
+            difficulty: core
+      animals-nutrition:
+        title: Animals – Nutrition
+        objectives:
+          - id: SCI.Y3.NUTR.BAL_DIET
+            label: Identify food groups; balanced diet
+            difficulty: core
+          - id: SCI.Y3.NUTR.SKELETONS
+            label: Compare skeleton types (endoskeleton/exoskeleton)
+            difficulty: stretch
+          - id: SCI.Y3.NUTR.DIGEST_OVERVIEW
+            label: Simple overview of function of muscles/bones
+            difficulty: core
+      plants-transport:
+        title: Plants – Functions & Transport
+        objectives:
+          - id: SCI.Y3.PLANT.FUNC
+            label: Functions of roots, stem, leaves, flowers
+            difficulty: core
+          - id: SCI.Y3.PLANT.POLL_SEED
+            label: Pollination and seed dispersal (basic)
+            difficulty: core
+          - id: SCI.Y3.PLANT.WATER_TRANSP
+            label: Investigate water transport in plants
+            difficulty: stretch
+    history:
+      stone-age-iron-age:
+        title: Stone Age to Iron Age
+        objectives:
+          - id: HIS.Y3.PREHIST.SEQ
+            label: Sequence Stone/Bronze/Iron Ages on a timeline
+            difficulty: core
+          - id: HIS.Y3.PREHIST.LIFEWAYS
+            label: Describe changes in homes/tools over time
+            difficulty: core
+          - id: HIS.Y3.PREHIST.SOURCES
+            label: Use artefacts/images to infer about the past
+            difficulty: stretch
+      ancient-egypt:
+        title: Ancient Egypt
+        objectives:
+          - id: HIS.Y3.EGYPT.RIVER_NILE
+            label: Explain why the Nile was important
+            difficulty: core
+          - id: HIS.Y3.EGYPT.SOCIETY
+            label: Identify roles (pharaoh, scribe, farmer)
+            difficulty: core
+          - id: HIS.Y3.EGYPT.EVIDENCE
+            label: Use sources (tombs, hieroglyphs) for information
+            difficulty: stretch
+    geography:
+      rivers:
+        title: Rivers
+        objectives:
+          - id: GEO.Y3.RIVER.PARTS
+            label: Name parts of a river (source, mouth, meander)
+            difficulty: core
+          - id: GEO.Y3.RIVER.MAP
+            label: Locate UK/world rivers on a map
+            difficulty: core
+          - id: GEO.Y3.RIVER.USES
+            label: Describe human uses of rivers
+            difficulty: stretch
+      mountains:
+        title: Mountains
+        objectives:
+          - id: GEO.Y3.MTN.TYPES
+            label: Identify types of mountains
+            difficulty: core
+          - id: GEO.Y3.MTN.LOCATE
+            label: Locate major mountain ranges
+            difficulty: core
+          - id: GEO.Y3.MTN.CLIMATE_IMPACT
+            label: Describe basic effects on climate/habitats
+            difficulty: stretch
+      volcanoes-earthquakes:
+        title: Volcanoes & Earthquakes
+        objectives:
+          - id: GEO.Y3.GEO.PLATE_BASICS
+            label: Basic idea of tectonic plates
+            difficulty: stretch
+          - id: GEO.Y3.GEO.VOLC_PARTS
+            label: Label parts of a volcano; eruption types (simple)
+            difficulty: core
+          - id: GEO.Y3.GEO.EQ_SAFETY
+            label: Describe simple safety measures
+            difficulty: core
+      europe-study:
+        title: European Region Study
+        objectives:
+          - id: GEO.Y3.EUR.LOCATE
+            label: Locate selected European countries/capitals
+            difficulty: core
+          - id: GEO.Y3.EUR.COMPARE_REG
+            label: Compare climate/industry of two regions
+            difficulty: stretch
+          - id: GEO.Y3.EUR.MAP_SKILLS
+            label: Use simple thematic maps to gather info
+            difficulty: core
+      map-skills-4fig:
+        title: Map Skills (4-figure grid)
+        objectives:
+          - id: GEO.Y3.MAP.GRID4
+            label: Read 4-figure grid references
+            difficulty: core
+          - id: GEO.Y3.MAP.SYMBOLS_KEY
+            label: Use OS symbols and a key
+            difficulty: core
+          - id: GEO.Y3.MAP.SCALE
+            label: Recognise simple scales on maps
+            difficulty: stretch
+    languages:
+      greetings:
+        title: Greetings & Introductions
+        objectives:
+          - id: LAN.Y3.GREET.BASIC
+            label: Say hello/goodbye; ask and answer “How are you?”
+            difficulty: basic
+          - id: LAN.Y3.GREET.NAME
+            label: Ask and give your name
+            difficulty: basic
+          - id: LAN.Y3.GREET.PRONUN
+            label: Pronounce key sounds/accents correctly
+            difficulty: core
+      numbers-colours:
+        title: Numbers & Colours
+        objectives:
+          - id: LAN.Y3.NUM.1_20
+            label: Count to 20 and recognise colours
+            difficulty: basic
+          - id: LAN.Y3.NUM.AGE
+            label: Say your age and favourite colour
+            difficulty: core
+          - id: LAN.Y3.NUM.AGREEMENT
+            label: Apply colour agreement where relevant
+            difficulty: stretch
+      family:
+        title: Family & Pets
+        objectives:
+          - id: LAN.Y3.FAM.MEMBERS
+            label: Name immediate family and pets
+            difficulty: basic
+          - id: LAN.Y3.FAM.MY_FAMILY
+            label: Write/say simple sentences about family
+            difficulty: core
+          - id: LAN.Y3.FAM.HAVE_HAVE_NOT
+            label: Use “I have / I don’t have” constructions
+            difficulty: stretch
+      classroom-language:
+        title: Classroom Language
+        objectives:
+          - id: LAN.Y3.CLASS.ROUTINES
+            label: Understand common classroom instructions
+            difficulty: basic
+          - id: LAN.Y3.CLASS.OBJECTS
+            label: Name classroom objects
+            difficulty: core
+          - id: LAN.Y3.CLASS.REQUESTS
+            label: Make simple polite requests
+            difficulty: stretch
+      days-months:
+        title: Days & Months
+        objectives:
+          - id: LAN.Y3.TIME.DAYS
+            label: Name days of the week and months
+            difficulty: basic
+          - id: LAN.Y3.TIME.DATE
+            label: Say the date and birthday
+            difficulty: core
+          - id: LAN.Y3.TIME.SIMPLE_SCHED
+            label: Describe a simple weekly schedule
+            difficulty: stretch
+      food-drink:
+        title: Food & Drink
+        objectives:
+          - id: LAN.Y3.FOOD.VOCAB
+            label: Name common foods and drinks
+            difficulty: basic
+          - id: LAN.Y3.FOOD.LIKES
+            label: Express likes/dislikes with “I like…”
+            difficulty: core
+          - id: LAN.Y3.FOOD.ORDER
+            label: Role-play ordering a snack/drink
+            difficulty: stretch
+
+  y4:
+    maths:
+      place-value-10000:
+        title: Place Value to 10,000
+        objectives:
+          - id: MTH.Y4.PV.4DIG_PART
+            label: Partition/recombine 4-digit numbers
+            difficulty: core
+          - id: MTH.Y4.PV.ROUND10_100_1000
+            label: Round to nearest 10/100/1000
+            difficulty: core
+          - id: MTH.Y4.PV.NEG_NUMS
+            label: Interpret negative numbers in context
+            difficulty: stretch
+      add-sub-4digit:
+        title: Add & Subtract 4-digit Numbers
+        objectives:
+          - id: MTH.Y4.AS4.COL_ADD
+            label: Column addition (with regrouping)
+            difficulty: core
+          - id: MTH.Y4.AS4.COL_SUB
+            label: Column subtraction (exchanging)
+            difficulty: core
+          - id: MTH.Y4.AS4.REASON_CHECK
+            label: Estimate and check using inverse
+            difficulty: stretch
+      mult-div-1digit:
+        title: Multiply & Divide by 1-digit
+        objectives:
+          - id: MTH.Y4.MD.MULT_4x1
+            label: Multiply 4-digit by 1-digit (formal)
+            difficulty: stretch
+          - id: MTH.Y4.MD.DIV_3x1_SHORT
+            label: Short division of 3-digit by 1-digit
+            difficulty: stretch
+          - id: MTH.Y4.MD.FACTS_TO12
+            label: Recall multiplication/division facts to 12×12
+            difficulty: core
+      fractions-decimals:
+        title: Fractions & Decimals (tenths/hundredths)
+        objectives:
+          - id: MTH.Y4.FRA.DEC_TENTH_HUND
+            label: Recognise tenths/hundredths as decimals
+            difficulty: core
+          - id: MTH.Y4.FRA.FRA_DEC_EQUIV
+            label: Identify equivalence between fractions/decimals
+            difficulty: stretch
+          - id: MTH.Y4.FRA.ADD_SUB_SAME_DEN
+            label: Add/subtract fractions with same denominator
+            difficulty: core
+      area-perimeter:
+        title: Area & Perimeter
+        objectives:
+          - id: MTH.Y4.MEAS.AREA_COUNT
+            label: Find area by counting squares
+            difficulty: core
+          - id: MTH.Y4.MEAS.PERIM_RECT
+            label: Perimeter of rectangles/rectilinear shapes
+            difficulty: core
+          - id: MTH.Y4.MEAS.AREA_RECT
+            label: Area of rectangles (L×W)
+            difficulty: stretch
+      time-intervals:
+        title: Time & Intervals
+        objectives:
+          - id: MTH.Y4.TIME.CONVERT_MIN_HR
+            label: Convert between minutes and hours
+            difficulty: core
+          - id: MTH.Y4.TIME.ELAPSED
+            label: Calculate elapsed time across hours
+            difficulty: stretch
+          - id: MTH.Y4.TIME.TIMETABLE
+            label: Interpret timetables/bus schedules
+            difficulty: stretch
+      geometry-angles:
+        title: Geometry & Angles
+        objectives:
+          - id: MTH.Y4.GEO.ANGLES_TYPE
+            label: Recognise acute/right/obtuse angles
+            difficulty: core
+          - id: MTH.Y4.GEO.PARALLEL_PERP
+            label: Identify parallel and perpendicular lines
+            difficulty: core
+          - id: MTH.Y4.GEO.SYM_REFLECT
+            label: Reflect shapes in a mirror line (grid)
+            difficulty: stretch
+      times-tables-upto12:
+        title: Times Tables to 12×12
+        objectives:
+          - id: MTH.Y4.TT.RECALL_ALL
+            label: Rapid recall of all facts to 12×12
+            difficulty: core
+          - id: MTH.Y4.TT.DERIVE_FACTS
+            label: Derive related facts (e.g., 6×4 → 60×4)
+            difficulty: stretch
+          - id: MTH.Y4.TT.APPLY_WORD
+            label: Apply facts to word problems
+            difficulty: core
+    english:
+      fronted-adverbials:
+        title: Fronted Adverbials & Commas
+        objectives:
+          - id: ENG.Y4.GRAM.FRONT_ADV
+            label: Use fronted adverbials of time/place
+            difficulty: core
+          - id: ENG.Y4.GRAM.COMMA_AFTER
+            label: Use a comma after a fronted adverbial
+            difficulty: core
+          - id: ENG.Y4.GRAM.VAR_OPENERS
+            label: Vary sentence openers for effect
+            difficulty: stretch
+      pronouns:
+        title: Pronouns & Cohesion
+        objectives:
+          - id: ENG.Y4.GRAM.PRON_REF
+            label: Use pronouns to avoid repetition
+            difficulty: core
+          - id: ENG.Y4.GRAM.AGREEMENT
+            label: Maintain pronoun–verb agreement
+            difficulty: core
+          - id: ENG.Y4.GRAM.POSSESSIVE
+            label: Use possessive pronouns correctly
+            difficulty: stretch
+      poetry-sound:
+        title: Poetry – Sound & Rhythm
+        objectives:
+          - id: ENG.Y4.POE.RHYME
+            label: Identify rhyme and alliteration
+            difficulty: core
+          - id: ENG.Y4.POE.PERFORM
+            label: Perform poem with appropriate intonation
+            difficulty: core
+          - id: ENG.Y4.POE.CREATE_STANZA
+            label: Write a stanza using a simple pattern
+            difficulty: stretch
+      play-scripts:
+        title: Play Scripts
+        objectives:
+          - id: ENG.Y4.DRAMA.LAYOUT
+            label: Use script layout (names/colon, stage directions)
+            difficulty: core
+          - id: ENG.Y4.DRAMA.DIALOGUE
+            label: Write dialogue advancing action
+            difficulty: stretch
+          - id: ENG.Y4.DRAMA.PERFORM
+            label: Perform a short scene clearly
+            difficulty: core
+      newspaper-reports:
+        title: Newspaper Reports
+        objectives:
+          - id: ENG.Y4.NEWS.HEAD_LEDE
+            label: Write headline and opening (5Ws)
+            difficulty: core
+          - id: ENG.Y4.NEWS.QUOTES
+            label: Use quotes with correct punctuation
+            difficulty: stretch
+          - id: ENG.Y4.NEWS.FORMAL_TONE
+            label: Maintain consistent formal tone
+            difficulty: stretch
+      figurative-language:
+        title: Figurative Language (intro)
+        objectives:
+          - id: ENG.Y4.FIG.SIMILE
+            label: Identify and use similes
+            difficulty: core
+          - id: ENG.Y4.FIG.METAPHOR_BASIC
+            label: Recognise simple metaphors
+            difficulty: stretch
+          - id: ENG.Y4.FIG.PERSONIFY
+            label: Experiment with personification
+            difficulty: stretch
+    science:
+      states-of-matter:
+        title: States of Matter
+        objectives:
+          - id: SCI.Y4.MAT.SOL_LIQ_GAS
+            label: Classify solids, liquids, gases by properties
+            difficulty: core
+          - id: SCI.Y4.MAT.CHANGE_STATE
+            label: Describe changes of state with heating/cooling
+            difficulty: core
+          - id: SCI.Y4.MAT.EVAP_CONDENSE
+            label: Explain evaporation/condensation in water cycle
+            difficulty: stretch
+      sound:
+        title: Sound
+        objectives:
+          - id: SCI.Y4.SND.VIBRATION
+            label: Recognise sound made by vibrations
+            difficulty: core
+          - id: SCI.Y4.SND.PITCH_VOLUME
+            label: Investigate pitch and volume variables
+            difficulty: core
+          - id: SCI.Y4.SND.MAT_DAMP
+            label: Test which materials muffle sound
+            difficulty: stretch
+      electricity-basics:
+        title: Electricity (simple circuits)
+        objectives:
+          - id: SCI.Y4.ELEC.COMPONENTS
+            label: Identify components; draw simple circuits
+            difficulty: core
+          - id: SCI.Y4.ELEC.SWITCHES
+            label: Explain open/closed switches
+            difficulty: core
+          - id: SCI.Y4.ELEC.CONDUCT_INSUL
+            label: Classify conductors and insulators
+            difficulty: stretch
+      living-things-classify:
+        title: Living Things – Classification (intro)
+        objectives:
+          - id: SCI.Y4.CLASS.GROUP_KEYS
+            label: Group living things; use simple keys
+            difficulty: core
+          - id: SCI.Y4.CLASS.HABITATS
+            label: Relate groups to habitats
+            difficulty: core
+          - id: SCI.Y4.CLASS.CHANGE_IMPACT
+            label: Suggest effects of environment changes
+            difficulty: stretch
+      digestive-system:
+        title: Animals including Humans – Digestion
+        objectives:
+          - id: SCI.Y4.DIGEST.ORGANS
+            label: Name parts of digestive system
+            difficulty: core
+          - id: SCI.Y4.DIGEST.TEETH_TYPES
+            label: Identify types of teeth and functions
+            difficulty: core
+          - id: SCI.Y4.DIGEST.DENTAL_CARE
+            label: Explain simple dental care choices
+            difficulty: stretch
+    history:
+      ancient-greece:
+        title: Ancient Greece
+        objectives:
+          - id: HIS.Y4.GRC.CITY_STATES
+            label: Describe city-states and everyday life
+            difficulty: core
+          - id: HIS.Y4.GRC.DEMOCRACY
+            label: Explain simple idea of Greek democracy
+            difficulty: stretch
+          - id: HIS.Y4.GRC.LEGACY
+            label: Identify Greek legacies (Olympics, myths)
+            difficulty: core
+      romans-britain:
+        title: Romans in Britain
+        objectives:
+          - id: HIS.Y4.ROM.INVASION
+            label: Outline invasion and resistance (Boudicca)
+            difficulty: core
+          - id: HIS.Y4.ROM.ROADS_BATHS
+            label: Describe roads/baths and their impact
+            difficulty: core
+          - id: HIS.Y4.ROM.SOURCES
+            label: Use artefacts to infer daily life
+            difficulty: stretch
+      anglo-saxons-scots:
+        title: Anglo-Saxons & Scots
+        objectives:
+          - id: HIS.Y4.AS.SETTLEMENT
+            label: Describe settlement patterns/place names
+            difficulty: core
+          - id: HIS.Y4.AS.LAW_BELIEF
+            label: Explain simple laws/beliefs (conversion)
+            difficulty: stretch
+          - id: HIS.Y4.AS.COMPARE_ROM
+            label: Compare with late Roman Britain
+            difficulty: stretch
+    geography:
+      settlements:
+        title: Settlements & Land Use
+        objectives:
+          - id: GEO.Y4.SETT.TYPES
+            label: Identify types of settlements and land use
+            difficulty: core
+          - id: GEO.Y4.SETT.SERVICES
+            label: Discuss services and their location
+            difficulty: core
+          - id: GEO.Y4.SETT.CHANGE
+            label: Describe how settlements change over time
+            difficulty: stretch
+      climate-zones:
+        title: Climate Zones & Biomes (intro)
+        objectives:
+          - id: GEO.Y4.CLIM.ZONES
+            label: Locate climate zones/biomes on world map
+            difficulty: core
+          - id: GEO.Y4.CLIM.CHARTS
+            label: Interpret simple climate graphs
+            difficulty: stretch
+          - id: GEO.Y4.CLIM.ADAPT
+            label: Describe plant/animal adaptations
+            difficulty: core
+      trade-routes:
+        title: Trade & Economic Activity
+        objectives:
+          - id: GEO.Y4.TRADE.EXPORT_IMPORT
+            label: Explain export/import with examples
+            difficulty: core
+          - id: GEO.Y4.TRADE.SUPPLY_CHAIN
+            label: Trace a simple supply chain
+            difficulty: stretch
+          - id: GEO.Y4.TRADE.FAIRTRADE
+            label: Describe idea of Fairtrade
+            difficulty: core
+      map-skills-6fig:
+        title: Map Skills (6-figure grid)
+        objectives:
+          - id: GEO.Y4.MAP.GRID6
+            label: Read 6-figure grid references
+            difficulty: stretch
+          - id: GEO.Y4.MAP.CONTOURS
+            label: Recognise contours and relief
+            difficulty: stretch
+          - id: GEO.Y4.MAP.DIST_DIR
+            label: Calculate simple distance/direction on OS map
+            difficulty: core
+    languages:
+      describing-people:
+        title: Describing People & Clothes
+        objectives:
+          - id: LAN.Y4.DESC.ADJS_AGREE
+            label: Use adjectives with correct agreement (where relevant)
+            difficulty: core
+          - id: LAN.Y4.DESC.CLOTHES_VOCAB
+            label: Name clothes and colours together
+            difficulty: core
+          - id: LAN.Y4.DESC.SENTENCES
+            label: Write 3–4 linked sentences describing a person
+            difficulty: stretch
+      weather:
+        title: Weather & Seasons
+        objectives:
+          - id: LAN.Y4.WEA.PHRASES
+            label: Say common weather phrases
+            difficulty: basic
+          - id: LAN.Y4.WEA.SEASONS
+            label: Talk about seasons and activities
+            difficulty: core
+          - id: LAN.Y4.WEA.FORECAST
+            label: Give a short weather forecast
+            difficulty: stretch
+      time-daily-routine:
+        title: Time & Daily Routine
+        objectives:
+          - id: LAN.Y4.TIME.CLOCK
+            label: Tell time to the hour/half hour
+            difficulty: core
+          - id: LAN.Y4.TIME.ROUTINE_VERBS
+            label: Use common routine verbs in present tense
+            difficulty: core
+          - id: LAN.Y4.TIME.SEQ
+            label: Sequence a day using connectives
+            difficulty: stretch
+      places-town:
+        title: Places in Town & Directions
+        objectives:
+          - id: LAN.Y4.TOWN.PLACES
+            label: Name common places in a town
+            difficulty: basic
+          - id: LAN.Y4.TOWN.DIRECTIONS
+            label: Ask for and give simple directions
+            difficulty: core
+          - id: LAN.Y4.TOWN.THERE_IS
+            label: Use “there is/are” structures
+            difficulty: stretch
+      animals:
+        title: Animals
+        objectives:
+          - id: LAN.Y4.ANIM.VOCAB
+            label: Name a range of animals; articles/gender where relevant
+            difficulty: core
+          - id: LAN.Y4.ANIM.DESCRIBE
+            label: Describe size/colour/habitat briefly
+            difficulty: core
+          - id: LAN.Y4.ANIM.PREFERENCES
+            label: Say likes/dislikes about animals
+            difficulty: stretch
+      grammar-gender-articles:
+        title: "Grammar: Gender & Articles"
+        objectives:
+          - id: LAN.Y4.GRAM.GENDER
+            label: Recognise noun gender
+            difficulty: core
+          - id: LAN.Y4.GRAM.DEF_INDEF
+            label: Use definite/indefinite articles correctly
+            difficulty: core
+          - id: LAN.Y4.GRAM.PLURAL
+            label: Form regular plurals
+            difficulty: stretch
+
+  y5:
+    maths:
+      place-value-1000000:
+        title: Place Value to 1,000,000
+        objectives:
+          - id: MTH.Y5.PV.ROUND10_100_1000_10K
+            label: Round numbers to 10, 100, 1000, 10,000
+            difficulty: core
+          - id: MTH.Y5.PV.NUMLINE_SCALE
+            label: Place large numbers on scaled number lines
+            difficulty: stretch
+          - id: MTH.Y5.PV.NEG_CONTEXT
+            label: Interpret negative numbers in context
+            difficulty: core
+      add-sub-large:
+        title: Add & Subtract Large Numbers
+        objectives:
+          - id: MTH.Y5.AS.LARGE_COL
+            label: Column methods with larger numbers
+            difficulty: core
+          - id: MTH.Y5.AS.MULTI_STEP
+            label: Solve multi-step problems using AS
+            difficulty: stretch
+          - id: MTH.Y5.AS.REASON_EST
+            label: Estimate and justify answers
+            difficulty: stretch
+      multiply-4digit:
+        title: Multiply 4-digit by 1–2 digits
+        objectives:
+          - id: MTH.Y5.MUL.LONG_2DIG
+            label: Long multiplication by 2 digits
+            difficulty: stretch
+          - id: MTH.Y5.MUL.FACTS_FLUENCY
+            label: Apply facts fluently in multiplication
+            difficulty: core
+          - id: MTH.Y5.MUL.REASON_ERROR
+            label: Spot and correct errors in working
+            difficulty: stretch
+      division-short:
+        title: Short Division
+        objectives:
+          - id: MTH.Y5.DIV.SHORT_WITH_REMA
+            label: Short division with remainders
+            difficulty: core
+          - id: MTH.Y5.DIV.INTERPRET_REMA
+            label: Interpret remainders in context
+            difficulty: stretch
+          - id: MTH.Y5.DIV.REL_FACTS
+            label: Use related multiplication/division facts
+            difficulty: core
+      fractions-decimals-percents:
+        title: Fractions, Decimals & Percentages
+        objectives:
+          - id: MTH.Y5.FDP.EQUIV
+            label: Convert between fractions/decimals/percentages
+            difficulty: core
+          - id: MTH.Y5.FDP.ADD_SUB
+            label: Add/subtract fractions with same denominators; simple unlike
+            difficulty: stretch
+          - id: MTH.Y5.FDP.PERCENT_OF_AMOUNT
+            label: Find percentages of amounts (10%, 20%, 50%)
+            difficulty: stretch
+      area-perimeter-volume:
+        title: Area, Perimeter & Volume
+        objectives:
+          - id: MTH.Y5.MEAS.AREA_COMPOSITE
+            label: Area of composite rectilinear shapes
+            difficulty: stretch
+          - id: MTH.Y5.MEAS.PERIM_SOLVE
+            label: Perimeter problem solving
+            difficulty: core
+          - id: MTH.Y5.MEAS.VOL_CUBES
+            label: Estimate volume using cubes
+            difficulty: core
+      angles-polygons:
+        title: Angles & Polygons
+        objectives:
+          - id: MTH.Y5.GEO.ANG_SUM_TRI
+            label: Use angle sums in triangles/straight lines
+            difficulty: stretch
+          - id: MTH.Y5.GEO.PROPERTIES_POLY
+            label: Classify polygons by properties
+            difficulty: core
+          - id: MTH.Y5.GEO.MEASURE_DRAW
+            label: Measure/draw angles with a protractor
+            difficulty: core
+      statistics-line-graphs:
+        title: Statistics (Line Graphs)
+        objectives:
+          - id: MTH.Y5.STAT.READ_LINE
+            label: Read and interpret line graphs/tables
+            difficulty: core
+          - id: MTH.Y5.STAT.TWO_STEP
+            label: Solve two-step problems using graphs
+            difficulty: stretch
+          - id: MTH.Y5.STAT.AVERAGE
+            label: Find and interpret mean (intro)
+            difficulty: stretch
+    english:
+      modal-verbs-adverbs:
+        title: Modal Verbs & Adverbs of Possibility
+        objectives:
+          - id: ENG.Y5.MOD.MODAL_USE
+            label: Use modal verbs to show possibility/obligation
+            difficulty: core
+          - id: ENG.Y5.MOD.ADV_PROB
+            label: Use adverbs to indicate probability
+            difficulty: core
+          - id: ENG.Y5.MOD.TONE_EFFECT
+            label: Choose structures to affect tone/strength
+            difficulty: stretch
+      relative-clauses:
+        title: Relative Clauses
+        objectives:
+          - id: ENG.Y5.GRAM.REL_PRON
+            label: Use who/which/that to add detail
+            difficulty: core
+          - id: ENG.Y5.GRAM.EMBEDDED
+            label: Use embedded relative clauses with commas
+            difficulty: stretch
+          - id: ENG.Y5.GRAM.AVOID_RUNON
+            label: Punctuate to avoid run-ons
+            difficulty: core
+      cohesive-devices:
+        title: Cohesive Devices & Paragraphing
+        objectives:
+          - id: ENG.Y5.COH.REF_PRON
+            label: Maintain cohesion with pronouns/adverbials
+            difficulty: core
+          - id: ENG.Y5.COH.CONNECTIVES
+            label: Use a range of connectives logically
+            difficulty: core
+          - id: ENG.Y5.COH.PARA_FLOW
+            label: Link paragraphs using topic sentences
+            difficulty: stretch
+      persuasive-writing:
+        title: Persuasive Writing
+        objectives:
+          - id: ENG.Y5.PERS.CLaim_REASON
+            label: State clear claims with reasons/evidence
+            difficulty: core
+          - id: ENG.Y5.PERS.AUDIENCE
+            label: Address audience and counter-argument (intro)
+            difficulty: stretch
+          - id: ENG.Y5.PERS.FORMALITY
+            label: Control formality consistently
+            difficulty: stretch
+      discursive-reports:
+        title: Discursive Reports
+        objectives:
+          - id: ENG.Y5.DISC.BALANCE
+            label: Present balanced points of view
+            difficulty: core
+          - id: ENG.Y5.DISC.SOURCE_USE
+            label: Summarise info from two sources
+            difficulty: stretch
+          - id: ENG.Y5.DISC.CONCLUDE
+            label: Conclude with a reasoned summary
+            difficulty: core
+      narrative-viewpoint:
+        title: Narrative Viewpoint & Dialogue
+        objectives:
+          - id: ENG.Y5.NAR.VIEWPOINT
+            label: Maintain viewpoint consistently
+            difficulty: core
+          - id: ENG.Y5.NAR.DIALOGUE_PUNC
+            label: Punctuate dialogue correctly
+            difficulty: core
+          - id: ENG.Y5.NAR.SHOW_NOT_TELL
+            label: Show character feelings via action/dialogue
+            difficulty: stretch
+    science:
+      properties-materials:
+        title: Properties & Changes of Materials
+        objectives:
+          - id: SCI.Y5.MAT.PROPERTIES
+            label: Compare properties (hardness, solubility)
+            difficulty: core
+          - id: SCI.Y5.MAT.MIXTURE_SEP
+            label: Separate mixtures (filtering, sieving)
+            difficulty: stretch
+          - id: SCI.Y5.MAT.REVERSIBLE
+            label: Reversible vs irreversible changes (intro)
+            difficulty: stretch
+      earth-space:
+        title: Earth & Space
+        objectives:
+          - id: SCI.Y5.SPACE.DAY_NIGHT
+            label: Explain day/night and Earth’s rotation
+            difficulty: core
+          - id: SCI.Y5.SPACE.PLANETS
+            label: Order planets; basic features
+            difficulty: core
+          - id: SCI.Y5.SPACE.SHADOW_SEASONS
+            label: Relate shadows/seasons to Sun’s position
+            difficulty: stretch
+      forces:
+        title: Forces
+        objectives:
+          - id: SCI.Y5.FORCE.GRAVITY
+            label: Describe gravity and weight vs mass
+            difficulty: core
+          - id: SCI.Y5.FORCE.AIR_WATER_RES
+            label: Investigate air/water resistance
+            difficulty: stretch
+          - id: SCI.Y5.FORCE.LEVERS
+            label: Explain levers, pulleys, gears (intro)
+            difficulty: stretch
+      living-things-life-cycles:
+        title: Living Things – Life Cycles
+        objectives:
+          - id: SCI.Y5.LIFE.CYCLES
+            label: Describe life cycles of mammals/amphibians/birds
+            difficulty: core
+          - id: SCI.Y5.LIFE.REPRO_PLANTS
+            label: Reproduction in flowering plants
+            difficulty: core
+          - id: SCI.Y5.LIFE.METAMORPH
+            label: Explain metamorphosis with examples
+            difficulty: stretch
+      humans-changes:
+        title: Animals including Humans – Changes to Old Age
+        objectives:
+          - id: SCI.Y5.HUM.GROWTH_STAGES
+            label: Stages of human development
+            difficulty: core
+          - id: SCI.Y5.HUM.CHANGES_PUBERTY
+            label: Describe changes in puberty (age-appropriate)
+            difficulty: core
+          - id: SCI.Y5.HUM.LIFESTYLE
+            label: Link lifestyle choices to health
+            difficulty: stretch
+    history:
+      anglo-saxons-vikings:
+        title: Anglo-Saxons & Vikings (depth)
+        objectives:
+          - id: HIS.Y5.ASV.CONFLICT
+            label: Outline conflict and settlements
+            difficulty: core
+          - id: HIS.Y5.ASV.DANELAW
+            label: Explain Danelaw and cultural exchange
+            difficulty: stretch
+          - id: HIS.Y5.ASV.SOURCES
+            label: Evaluate reliability of contrasting sources
+            difficulty: stretch
+      tudors:
+        title: Tudors
+        objectives:
+          - id: HIS.Y5.TUD.MONARCHS
+            label: Sequence key monarchs/events
+            difficulty: core
+          - id: HIS.Y5.TUD.REL_CHANGE
+            label: Explain religious changes (Reformation)
+            difficulty: stretch
+          - id: HIS.Y5.TUD.DAILY_LIFE
+            label: Compare Tudor daily life with today
+            difficulty: core
+      maya:
+        title: Maya Civilization (or Islamic Golden Age)
+        objectives:
+          - id: HIS.Y5.MAYA.CULTURE
+            label: Describe aspects of Maya culture (cities/writing)
+            difficulty: core
+          - id: HIS.Y5.MAYA.TIMELINE
+            label: Place Maya in world timeline
+            difficulty: core
+          - id: HIS.Y5.MAYA.COMPARE
+            label: Compare with another civilisation
+            difficulty: stretch
+    geography:
+      biomes-vegetation-belts:
+        title: Biomes & Vegetation Belts
+        objectives:
+          - id: GEO.Y5.BIOME.IDENTIFY
+            label: Identify world biomes on a map
+            difficulty: core
+          - id: GEO.Y5.BIOME.CLIMATE_LINK
+            label: Link climate to biome characteristics
+            difficulty: core
+          - id: GEO.Y5.BIOME.HUMAN_IMPACT
+            label: Describe human impact on a biome
+            difficulty: stretch
+      rivers-coasts:
+        title: Rivers & Coasts (processes)
+        objectives:
+          - id: GEO.Y5.COAST.EROSION_DEP
+            label: Explain erosion/transport/deposition (basic)
+            difficulty: core
+          - id: GEO.Y5.COAST.FEATURES
+            label: Identify coastal features (cliff, bay, spit)
+            difficulty: core
+          - id: GEO.Y5.COAST.MANAGE
+            label: Describe simple coastal management
+            difficulty: stretch
+      south-america-study:
+        title: South America Study
+        objectives:
+          - id: GEO.Y5.SA.LOCATE
+            label: Locate countries and key physical features
+            difficulty: core
+          - id: GEO.Y5.SA.COMPARE_REG
+            label: Compare two regions (climate/economy)
+            difficulty: stretch
+          - id: GEO.Y5.SA.MAP_USE
+            label: Use thematic maps and data tables
+            difficulty: core
+      os-maps-6fig:
+        title: OS Maps & 6-figure Grid References
+        objectives:
+          - id: GEO.Y5.MAP.6FIG
+            label: Read 6-figure grid references accurately
+            difficulty: stretch
+          - id: GEO.Y5.MAP.BEARING_SCALE
+            label: Use scale and simple bearings
+            difficulty: stretch
+          - id: GEO.Y5.MAP.FEATURE_ID
+            label: Identify features from contours/symbols
+            difficulty: core
+      natural-resources:
+        title: Natural Resources & Energy
+        objectives:
+          - id: GEO.Y5.RES.TYPES
+            label: Classify renewable vs non-renewable
+            difficulty: core
+          - id: GEO.Y5.RES.DISTRIBUTION
+            label: Describe global distribution examples
+            difficulty: core
+          - id: GEO.Y5.RES.IMPACTS
+            label: Explain environmental/economic impacts
+            difficulty: stretch
+    languages:
+      pastimes-hobbies:
+        title: Pastimes & Hobbies
+        objectives:
+          - id: LAN.Y5.HOB.VOCAB
+            label: Name hobbies and frequency expressions
+            difficulty: core
+          - id: LAN.Y5.HOB.PRESENT_TENSE
+            label: Use present tense to talk about routines
+            difficulty: core
+          - id: LAN.Y5.HOB.PREF_BECAUSE
+            label: Give opinions with “because…” clauses
+            difficulty: stretch
+      food-restaurants:
+        title: Food, Cafés & Restaurants
+        objectives:
+          - id: LAN.Y5.FOOD.MENU_ORDER
+            label: Order food and ask for the bill
+            difficulty: core
+          - id: LAN.Y5.FOOD.QUANTIFIERS
+            label: Use quantifiers/measure words
+            difficulty: stretch
+          - id: LAN.Y5.FOOD.POLITENESS
+            label: Use polite register and requests
+            difficulty: core
+      house-home:
+        title: House & Home
+        objectives:
+          - id: LAN.Y5.HOME.ROOMS
+            label: Name rooms/furniture; prepositions
+            difficulty: core
+          - id: LAN.Y5.HOME.DESCRIBE
+            label: Describe your house with 4–5 sentences
+            difficulty: stretch
+          - id: LAN.Y5.HOME.THERE_IS_ARE
+            label: Use “there is/are” and “have/has”
+            difficulty: core
+      future-plans:
+        title: Future Plans (intro)
+        objectives:
+          - id: LAN.Y5.FUT.FUTURE_FORM
+            label: Use simple future form (going to/will equivalent)
+            difficulty: stretch
+          - id: LAN.Y5.FUT.TIME_EXP
+            label: Use time expressions for the future
+            difficulty: core
+          - id: LAN.Y5.FUT.SEQUENCE
+            label: Sequence two or three plans
+            difficulty: core
+      grammar-present:
+        title: "Grammar: Present Tense"
+        objectives:
+          - id: LAN.Y5.GRAM.PRES_CONJ
+            label: Conjugate common verbs in present tense
+            difficulty: core
+          - id: LAN.Y5.GRAM.NEG_QUEST
+            label: Form negatives and simple questions
+            difficulty: stretch
+          - id: LAN.Y5.GRAM.AGREE_SUBJ
+            label: Maintain subject–verb agreement
+            difficulty: core
+      grammar-adjectives-agreement:
+        title: Adjective Agreement
+        objectives:
+          - id: LAN.Y5.GRAM.ADJ_AGREE
+            label: Apply gender/number agreement
+            difficulty: stretch
+          - id: LAN.Y5.GRAM.POSITION
+            label: Use correct adjective position
+            difficulty: core
+          - id: LAN.Y5.GRAM.INTENSIFIERS
+            label: Use intensifiers (very/quite)
+            difficulty: core
+
+  y6:
+    maths:
+      fractions:
+        title: Fractions
+        objectives:
+          - id: MTH.Y6.FRA.COMP_ORDER
+            label: Compare and order fractions (un/common denominators)
+            difficulty: core
+          - id: MTH.Y6.FRA.ADD_SUB
+            label: Add/subtract fractions with common denominators; start unlike
+            difficulty: stretch
+          - id: MTH.Y6.FRA.MIXED_CONVERT
+            label: Convert between mixed and improper fractions
+            difficulty: core
+      decimals:
+        title: Decimals
+        objectives:
+          - id: MTH.Y6.DEC.PLACE
+            label: Understand place value to 3 dp
+            difficulty: core
+          - id: MTH.Y6.DEC.MULT_DIV_10_1000
+            label: Multiply/divide by 10, 100, 1000 (place shift)
+            difficulty: core
+          - id: MTH.Y6.DEC.ROUND_DP
+            label: Round decimals to specified decimal places
+            difficulty: stretch
+      percentages:
+        title: Percentages
+        objectives:
+          - id: MTH.Y6.PCT.FRA_DEC_PCT
+            label: Convert between fractions, decimals, percentages
+            difficulty: core
+          - id: MTH.Y6.PCT.OF_AMOUNT
+            label: Calculate percentages of amounts (incl. non-benchmarks)
+            difficulty: stretch
+          - id: MTH.Y6.PCT.COMPARE
+            label: Compare percentage changes in contexts
+            difficulty: stretch
+      geometry:
+        title: Geometry
+        objectives:
+          - id: MTH.Y6.GEO.COORD_QUAD1_4
+            label: Plot in all four quadrants; translate/reflect
+            difficulty: stretch
+          - id: MTH.Y6.GEO.ANGLES_POLY
+            label: Use angle rules in polygons and at a point
+            difficulty: stretch
+          - id: MTH.Y6.GEO.NETS_3D
+            label: Recognise and draw nets of 3D shapes
+            difficulty: core
+      long-division:
+        title: Long Division
+        objectives:
+          - id: MTH.Y6.DIV.LONG_2DIG
+            label: Long division by 2-digit numbers
+            difficulty: stretch
+          - id: MTH.Y6.DIV.INTERPRET_REMA
+            label: Interpret remainders in multi-step problems
+            difficulty: stretch
+          - id: MTH.Y6.DIV.CHECK
+            label: Check using multiplication/estimation
+            difficulty: core
+      probability:
+        title: Probability
+        objectives:
+          - id: MTH.Y6.PROB.LANG_SCALE
+            label: Use probability language and 0–1 scale
+            difficulty: core
+          - id: MTH.Y6.PROB.SIMPLE_FRAC
+            label: Find probabilities of simple events/fractions
+            difficulty: core
+          - id: MTH.Y6.PROB.COMPOUND_INTRO
+            label: Intro to combined events (independent)
+            difficulty: stretch
+      algebra:
+        title: Algebra
+        objectives:
+          - id: MTH.Y6.ALG.SIMPLE_EXPR
+            label: Form and evaluate simple expressions
+            difficulty: core
+          - id: MTH.Y6.ALG.MISSING_VALUES
+            label: Solve one-step equations
+            difficulty: core
+          - id: MTH.Y6.ALG.SEQ_RULES
+            label: Generate sequences from a rule
+            difficulty: stretch
+    english:
+      formal-informal:
+        title: Formal & Informal Register
+        objectives:
+          - id: ENG.Y6.STYLE.MATCH_REG
+            label: Match register to audience and purpose
+            difficulty: core
+          - id: ENG.Y6.STYLE.SHIFT_REG
+            label: Control shifts in formality within a piece
+            difficulty: stretch
+          - id: ENG.Y6.STYLE.VOCAB_CHOICE
+            label: Choose vocabulary to suit register
+            difficulty: core
+      passive-voice:
+        title: Passive Voice
+        objectives:
+          - id: ENG.Y6.GRAM.PASSIVE_FORM
+            label: Form passive voice in present/past
+            difficulty: core
+          - id: ENG.Y6.GRAM.PASSIVE_EFFECT
+            label: Explain effect of passive on tone/focus
+            difficulty: stretch
+          - id: ENG.Y6.GRAM.ACTIVE_PASSIVE
+            label: Switch between active and passive accurately
+            difficulty: stretch
+      advanced-punctuation:
+        title: Colons, Semicolons & Dashes
+        objectives:
+          - id: ENG.Y6.PUNC.COLON_LIST
+            label: Use colons for lists
+            difficulty: core
+          - id: ENG.Y6.PUNC.SEMI_LINK
+            label: Use semicolons to link related clauses
+            difficulty: stretch
+          - id: ENG.Y6.PUNC.DASH_EMPH
+            label: Use dashes for emphasis/parenthesis
+            difficulty: stretch
+      figurative-language-advanced:
+        title: Figurative Language (advanced)
+        objectives:
+          - id: ENG.Y6.FIG.EXTENDED
+            label: Build extended metaphors consistently
+            difficulty: stretch
+          - id: ENG.Y6.FIG.SHOW_IMAGERY
+            label: Create vivid imagery with precise vocabulary
+            difficulty: core
+          - id: ENG.Y6.FIG.CLICHE_AVOID
+            label: Avoid clichés and mixed metaphors
+            difficulty: core
+      balanced-arguments:
+        title: Balanced Arguments & Discussions
+        objectives:
+          - id: ENG.Y6.DISC.CLAIM_EVID
+            label: Support claims with evidence and examples
+            difficulty: core
+          - id: ENG.Y6.DISC.COUNTER
+            label: Present and respond to counter-arguments
+            difficulty: stretch
+          - id: ENG.Y6.DISC.SUM_CONCLUDE
+            label: Summarise and conclude logically
+            difficulty: core
+      narrative-structure:
+        title: Narrative Structure & Flashback
+        objectives:
+          - id: ENG.Y6.NAR.FLASHBACK
+            label: Use flashback/flashforward coherently
+            difficulty: stretch
+          - id: ENG.Y6.NAR.PACING
+            label: Control pacing between action/description
+            difficulty: core
+          - id: ENG.Y6.NAR.COHESION
+            label: Maintain cohesion across shifts in time
+            difficulty: stretch
+    science:
+      evolution-inheritance:
+        title: Evolution & Inheritance
+        objectives:
+          - id: SCI.Y6.EVO.INHERIT
+            label: Explain inheritance with examples
+            difficulty: core
+          - id: SCI.Y6.EVO.ADAPTION
+            label: Describe adaptation to environment
+            difficulty: core
+          - id: SCI.Y6.EVO.NAT_SELECT
+            label: Outline natural selection simply
+            difficulty: stretch
+      light:
+        title: Light (reflection/refraction)
+        objectives:
+          - id: SCI.Y6.LIGHT.REFLECT
+            label: Predict reflection angles on smooth surfaces
+            difficulty: stretch
+          - id: SCI.Y6.LIGHT.REFRACT
+            label: Describe refraction through materials
+            difficulty: stretch
+          - id: SCI.Y6.LIGHT.EYE_SAFETY
+            label: Explain light and eye safety
+            difficulty: core
+      electricity-advanced:
+        title: Electricity (circuits & components)
+        objectives:
+          - id: SCI.Y6.ELEC.SYMBOLS
+            label: Use circuit symbols and draw diagrams
+            difficulty: core
+          - id: SCI.Y6.ELEC.VAR_EFFECT
+            label: Explain effect of cell number/length of wire
+            difficulty: stretch
+          - id: SCI.Y6.ELEC.SERIES_PAR
+            label: Compare series vs parallel circuits (intro)
+            difficulty: stretch
+      classification:
+        title: Classification of Living Things
+        objectives:
+          - id: SCI.Y6.CLASS.LINNAEAN
+            label: Use simple classification keys (Linnaean levels)
+            difficulty: core
+          - id: SCI.Y6.CLASS.MICROORGANISMS
+            label: Recognise microorganisms and roles
+            difficulty: core
+          - id: SCI.Y6.CLASS.JUSTIFY_SORT
+            label: Justify sorting choices with evidence
+            difficulty: stretch
+      circulatory-system:
+        title: Human Circulatory System
+        objectives:
+          - id: SCI.Y6.CIRC.HEART_FUNC
+            label: Describe heart structure and function
+            difficulty: core
+          - id: SCI.Y6.CIRC.BLOOD_PARTS
+            label: Explain role of blood and vessels
+            difficulty: core
+          - id: SCI.Y6.CIRC.LIFESTYLE_LINKS
+            label: Link exercise/diet to circulatory health
+            difficulty: stretch
+    history:
+      world-war-2:
+        title: World War II
+        objectives:
+          - id: HIS.Y6.WW2.CAUSES
+            label: Outline main causes and timeline
+            difficulty: core
+          - id: HIS.Y6.WW2.HOMEFRONT
+            label: Describe life on the Home Front
+            difficulty: core
+          - id: HIS.Y6.WW2.SOURCES
+            label: Evaluate reliability/bias in sources
+            difficulty: stretch
+      ancient-benin:
+        title: Ancient Benin
+        objectives:
+          - id: HIS.Y6.BENIN.KINGDOM
+            label: Describe Benin Kingdom society/art
+            difficulty: core
+          - id: HIS.Y6.BENIN.TRADE
+            label: Explain trade links and contact
+            difficulty: stretch
+          - id: HIS.Y6.BENIN.LEGACY
+            label: Discuss legacy and artefacts today
+            difficulty: stretch
+      civil-rights-20c:
+        title: 20th Century Civil Rights (overview)
+        objectives:
+          - id: HIS.Y6.CR.MOVEMENTS
+            label: Identify key movements/figures
+            difficulty: core
+          - id: HIS.Y6.CR.CAUSE_EFFECT
+            label: Explain causes/effects of one event
+            difficulty: stretch
+          - id: HIS.Y6.CR.SOURCES
+            label: Compare viewpoints from two sources
+            difficulty: stretch
+    geography:
+      globalisation:
+        title: Globalisation & Trade
+        objectives:
+          - id: GEO.Y6.GLOB.DEF_IMPACT
+            label: Define globalisation; give impacts
+            difficulty: core
+          - id: GEO.Y6.GLOB.SUPPLY_CHAIN
+            label: Trace an international supply chain
+            difficulty: stretch
+          - id: GEO.Y6.GLOB.ETHICS
+            label: Discuss ethical/environmental considerations
+            difficulty: stretch
+      climate-change:
+        title: Climate Change & Sustainability
+        objectives:
+          - id: GEO.Y6.CLIM.EVIDENCE
+            label: Identify evidence for climate change
+            difficulty: core
+          - id: GEO.Y6.CLIM.CAUSES
+            label: Explain human/natural causes (overview)
+            difficulty: core
+          - id: GEO.Y6.CLIM.MITIGATE
+            label: Suggest mitigation/adaptation strategies
+            difficulty: stretch
+      urbanisation:
+        title: Urbanisation & Settlements
+        objectives:
+          - id: GEO.Y6.URB.TRENDS
+            label: Describe urban growth trends
+            difficulty: core
+          - id: GEO.Y6.URB.PUSH_PULL
+            label: Explain push/pull factors for migration
+            difficulty: stretch
+          - id: GEO.Y6.URB.IMPACTS
+            label: Discuss impacts on services/environment
+            difficulty: stretch
+      fieldwork-project:
+        title: Fieldwork Project (local study)
+        objectives:
+          - id: GEO.Y6.FIELD.QUESTION
+            label: Frame a clear enquiry question
+            difficulty: core
+          - id: GEO.Y6.FIELD.COLLECT
+            label: Collect/present data (tally, map, chart)
+            difficulty: core
+          - id: GEO.Y6.FIELD.CONCLUDE
+            label: Draw conclusions and evaluate limits
+            difficulty: stretch
+    languages:
+      travel-directions:
+        title: Travel & Directions
+        objectives:
+          - id: LAN.Y6.TRAVEL.TICKETS
+            label: Ask for tickets and times
+            difficulty: core
+          - id: LAN.Y6.TRAVEL.DIRECTIONS
+            label: Understand and give multi-step directions
+            difficulty: stretch
+          - id: LAN.Y6.TRAVEL.PROBLEMS
+            label: Report a simple problem or delay
+            difficulty: stretch
+      holidays-past:
+        title: Holidays (past & future)
+        objectives:
+          - id: LAN.Y6.HOLS.PAST
+            label: Talk about a past holiday using past tense
+            difficulty: stretch
+          - id: LAN.Y6.HOLS.FUTURE
+            label: Describe future holiday plans
+            difficulty: core
+          - id: LAN.Y6.HOLS.PREFER
+            label: Give opinions with reasons
+            difficulty: core
+      school-subjects:
+        title: School Subjects & Opinions
+        objectives:
+          - id: LAN.Y6.SCH.SUBJECTS
+            label: Name subjects and timetable days
+            difficulty: basic
+          - id: LAN.Y6.SCH.OPINIONS
+            label: Express opinions and reasons about subjects
+            difficulty: core
+          - id: LAN.Y6.SCH.BECAUSE_LINK
+            label: Use “because/so” style linkers
+            difficulty: stretch
+      grammar-past-future:
+        title: "Grammar: Past & Future (intro)"
+        objectives:
+          - id: LAN.Y6.GRAM.PAST_FORM
+            label: Use a simple past form correctly
+            difficulty: stretch
+          - id: LAN.Y6.GRAM.FUTURE_FORM
+            label: Use a simple future form correctly
+            difficulty: stretch
+          - id: LAN.Y6.GRAM.TIME_PHRASES
+            label: Use time phrases to anchor tense
+            difficulty: core
+      cultural-topics:
+        title: Cultural Topics & Festivals
+        objectives:
+          - id: LAN.Y6.CULT.FESTIVAL_INFO
+            label: Understand key facts about a festival
+            difficulty: core
+          - id: LAN.Y6.CULT.COMPARE
+            label: Compare a tradition with your own culture
+            difficulty: stretch
+          - id: LAN.Y6.CULT.PHRASES
+            label: Use short set phrases linked to the topic
+            difficulty: core

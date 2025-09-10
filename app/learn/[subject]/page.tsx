@@ -2,16 +2,20 @@
 import Link from "next/link";
 import { redirect, notFound } from "next/navigation";
 import { headers } from "next/headers";
-import { SUBJECTS, type Subject } from "@/data/subjects";
+import { SUBJECTS } from "@/data/subjects";
 import { getSkills, type SubjectSlug } from "@/data/curriculum";
 import { levelForAge } from "@/data/ages";
 
 export const dynamic = "force-dynamic"; // read cookies each request
 
-export default async function SubjectPage({ params }: { params: { subject: SubjectSlug } }) {
-  if (params.subject === "languages") redirect("/learn/languages");
+export default async function SubjectPage({
+  params,
+}: { params: Promise<{ subject: SubjectSlug }> }) {
+  const { subject: subjectSlug } = await params;
 
-  const subject = SUBJECTS.find((s) => s.slug === params.subject) as Subject | undefined;
+  if (subjectSlug === "languages") redirect("/learn/languages");
+
+  const subject = SUBJECTS.find(s => s.slug === subjectSlug);
   if (!subject) return notFound();
 
   const hdrs = await headers();

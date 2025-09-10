@@ -7,8 +7,6 @@ import { getSkill, type SubjectSlug } from "@/data/curriculum";
 import { levelForAge } from "@/data/ages";
 import React from "react";
 
-export const dynamic = "force-dynamic";
-
 /* --- Tiny inline SVG icon set --- */
 function PdfIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -46,10 +44,17 @@ function ResourcesIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+
+export const dynamic = "force-dynamic";
+
+/* icons omitted for brevity — keep yours */
+
 export default async function SkillPage({
   params,
-}: { params: { subject: SubjectSlug; skill: string } }) {
-  const subject = SUBJECTS.find((s) => s.slug === params.subject);
+}: { params: Promise<{ subject: SubjectSlug; skill: string }> }) {
+  const { subject: subjectSlug, skill: skillSlug } = await params;
+
+  const subject = SUBJECTS.find((s) => s.slug === subjectSlug);
   if (!subject) return notFound();
 
   const hdrs = await headers();
@@ -64,12 +69,11 @@ export default async function SkillPage({
   const age = ageStr ? Number(ageStr) : 10;
   const level = levelForAge(age);
 
-  let skill = getSkill(level, params.subject, params.skill);
-  if (!skill) skill = getSkill("y6", params.subject, params.skill);
+  let skill = getSkill(level, subjectSlug, skillSlug);
+  if (!skill) skill = getSkill("y6", subjectSlug, skillSlug);
   if (!skill) return notFound();
 
-  // NEW: computed PDF href via streaming route
-  const pdfHref = `/pdfs/${level}/${params.subject}/${params.skill}`;
+  const pdfHref = `/pdfs/${level}/${subjectSlug}/${skillSlug}`;
 
   return (
     <div className="skill-hub" style={{ "--accent": subject.color } as React.CSSProperties}>
@@ -78,54 +82,34 @@ export default async function SkillPage({
         Age {age} (Year {level.replace(/^y/i, "")}). Topic: <strong>{skill.title}</strong>
       </p>
 
-      {/* Topic pill becomes a link back to /learn/[subject] */}
       <div className="pill-wrap">
-        <Link className="topic-pill topic-pill-link" href={`/learn/${params.subject}`}>
+        <Link className="topic-pill topic-pill-link" href={`/learn/${subjectSlug}`}>
           {skill.title}
         </Link>
       </div>
 
-      {/* Weakness card (above tiles) */}
-      <section className="weakness-card">
-        <h2>Your current weaknesses</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae
-          nibh ut urna faucibus semper. Maecenas id turpis nec lacus pulvinar
-          viverra. Curabitur fermentum, tortor nec volutpat tristique, justo
-          urna elementum ipsum, a semper neque justo non lorem.
-        </p>
-      </section>
+      {/* Weakness card ... keep as-is */}
 
-      {/* Four option tiles with icons */}
       <div className="tile-grid">
-        {/* Overview / PDF — uses the new route */}
-        <a
-          className="tile"
-          href={pdfHref}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className="tile" href={pdfHref} target="_blank" rel="noreferrer">
           <div className="tile-title">Overview</div>
           <PdfIcon className="tile-icon" aria-hidden="true" />
           <div className="tile-sub">View Summary PDF</div>
         </a>
 
-        {/* Dive Deeper */}
-        <Link className="tile" href={`/learn/${params.subject}/${params.skill}/expand`}>
+        <Link className="tile" href={`/learn/${subjectSlug}/${skillSlug}/expand`}>
           <div className="tile-title">Dive Deeper</div>
           <ChatIcon className="tile-icon" aria-hidden="true" />
           <div className="tile-sub">Ask questions about this topic</div>
         </Link>
 
-        {/* Practice */}
-        <Link className="tile" href={`/learn/${params.subject}/${params.skill}/practice`}>
+        <Link className="tile" href={`/learn/${subjectSlug}/${skillSlug}/practice`}>
           <div className="tile-title">Practice Questions</div>
           <QuizIcon className="tile-icon" aria-hidden="true" />
           <div className="tile-sub">Test your knowledge!</div>
         </Link>
 
-        {/* Resources */}
-        <Link className="tile" href={`/learn/${params.subject}/${params.skill}/resources`}>
+        <Link className="tile" href={`/learn/${subjectSlug}/${skillSlug}/resources`}>
           <div className="tile-title">More Resources</div>
           <ResourcesIcon className="tile-icon" aria-hidden="true" />
           <div className="tile-sub">Home ideas & downloads</div>
