@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import { SUBJECTS } from "@/data/subjects";
 import { getSkill, type SubjectSlug } from "@/data/curriculum";
 import { levelForAge } from "@/data/ages";
+import { getRecentResults, type ObjectiveWeakness } from "../../../lib/localStore";
 import React from "react";
 
 /* --- Tiny inline SVG icon set --- */
@@ -44,10 +45,7 @@ function ResourcesIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-
 export const dynamic = "force-dynamic";
-
-/* icons omitted for brevity — keep yours */
 
 export default async function SkillPage({
   params,
@@ -75,6 +73,19 @@ export default async function SkillPage({
 
   const pdfHref = `/pdfs/${level}/${subjectSlug}/${skillSlug}`;
 
+  // Read latest result directly from local store (no network fetch)
+  let latestWeak: ObjectiveWeakness[] = [];
+  try {
+    const results = await getRecentResults({ year: level, subject: subjectSlug, skill: skillSlug, limit: 1 });
+    const latest = results[0];
+    if (latest?.weaknesses?.length) latestWeak = latest.weaknesses;
+  } catch {
+    // ignore — renders without weaknesses
+  }
+
+  const weakList = latestWeak.filter(w => w.consideredWeak);
+  const hasWeak = weakList.length > 0;
+
   return (
     <div className="skill-hub" style={{ "--accent": subject.color } as React.CSSProperties}>
       <h1 className="h1" style={{ textTransform: "capitalize" }}>{subject.title}</h1>
@@ -88,7 +99,28 @@ export default async function SkillPage({
         </Link>
       </div>
 
-      {/* Weakness card ... keep as-is */}
+      {/* Your weaknesses */}
+      <div className="weak-card" style={{ margin: "16px 0", padding: 12, border: "1px solid var(--border, #ddd)", borderRadius: 8 }}>
+        <div style={{ fontWeight: 600, marginBottom: 6 }}>Your weaknesses</div>
+        {hasWeak ? (
+          <>
+            <div className="chip-row" style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              {weakList.map(w => (
+                <span key={w.objectiveId} className="chip" title={`Accuracy ${(w.accuracy*100).toFixed(0)}%`}>
+                  {w.title}
+                </span>
+              ))}
+            </div>
+            <div style={{ marginTop: 10 }}>
+              <Link className="chip" href={`/learn/${subjectSlug}/${skillSlug}/practice?focus=weak`}>
+                Practice my weak spots
+              </Link>
+            </div>
+          </>
+        ) : (
+          <div style={{ opacity: 0.8 }}>No weaknesses flagged yet. Take a test to find focus areas.</div>
+        )}
+      </div>
 
       <div className="tile-grid">
         <a className="tile" href={pdfHref} target="_blank" rel="noreferrer">

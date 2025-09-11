@@ -5,12 +5,17 @@ import { SUBJECTS } from "@/data/subjects";
 import { getSkill, type SubjectSlug } from "@/data/curriculum";
 import { levelForAge } from "@/data/ages";
 import PracticeTrainer from "../../../../components/PracticeTrainer";
+import { getRecentResults, type ObjectiveWeakness } from "../../../../lib/localStore";
 
 export const dynamic = "force-dynamic";
 
 export default async function PracticePage({
   params,
-}: { params: Promise<{ subject: SubjectSlug; skill: string }> }) {
+  searchParams,
+}: {
+  params: Promise<{ subject: SubjectSlug; skill: string }>;
+  searchParams?: { focus?: string };
+}) {
   const { subject: subjectSlug, skill: skillSlug } = await params;
 
   const subject = SUBJECTS.find((s) => s.slug === subjectSlug);
@@ -25,6 +30,18 @@ export default async function PracticePage({
   let skill = getSkill(level, subjectSlug, skillSlug);
   if (!skill) skill = getSkill("y6", subjectSlug, skillSlug);
   if (!skill) return notFound();
+
+  const wantsWeak = (searchParams?.focus ?? "").toLowerCase() === "weak";
+  let weaknessIds: string[] = [];
+  if (wantsWeak) {
+    try {
+      const results = await getRecentResults({ year: level, subject: subjectSlug, skill: skillSlug, limit: 1 });
+      const latest = results[0];
+      if (latest?.weaknesses?.length) {
+        weaknessIds = latest.weaknesses.filter((w: ObjectiveWeakness) => w.consideredWeak).map(w => w.objectiveId);
+      }
+    } catch { /* ignore */ }
+  }
 
   return (
     <div className="skill-hub" style={{ "--accent": subject.color } as React.CSSProperties}>
@@ -43,7 +60,8 @@ export default async function PracticePage({
         level={level}
         age={age}
         objectives={skill.objectives ?? []}
-        weaknesses={[]}
+        weaknesses={weaknessIds}                 // objectiveIds seeded from latest result
+        defaultFocusWeaknesses={wantsWeak}       // <-- default the toggle ON when ?focus=weak
       />
     </div>
   );
